@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shared Miniconda Env"
+  short_description: "Use shared Miniconda with project-local envs and deps"
+  default_prompt: "Set up per-project conda envs with all installs inside project folder."

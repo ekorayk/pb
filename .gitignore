@@ -1,0 +1,37 @@
+# Git ignore kuralları — parlakbeton.com
+
+# ─── Gizli dosyalar ──────────────────────────────────────
+.env
+.secrets/
+*.pem
+*.key
+token.json
+
+# ─── Python ortamı (Miniconda) ───────────────────────────
+.conda/
+.pip-cache/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# ─── Node.js / Astro ────────────────────────────────────
+node_modules/
+.astro/
+dist/
+.vercel/
+
+# ─── OS dosyaları ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Editör ──────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+
+# ─── Analytics raporları (lokal, Git'e eklenmesin) ───────
+.agent/analytics/reports/

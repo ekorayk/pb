@@ -1,0 +1,22 @@
+# parlakbeton.com — Python Bağımlılıkları
+# Ortam: pb-env (Miniconda, Python 3.11)
+# Kurulum: conda run -p .conda/envs/pb-env pip install -r requirements.txt
+
+# HTTP & API
+requests>=2.32
+
+# Google APIs
+google-auth>=2.48
+google-auth-httplib2>=0.3
+google-auth-oauthlib>=1.2
+google-api-python-client>=2.0
+google-analytics-data>=0.18
+
+# PDF Üretimi (Teklif sistemi)
+# WeasyPrint → SUNUCU ONLY (Debian 12: apt install python3-weasyprint)
+# Windows'ta GTK kurulumu gerekir, geliştirme için fpdf2 kullanılır
+weasyprint>=68  # sunucu
+fpdf2>=2.7      # Windows geliştirme / lokal test
+
+# Ortam değişkenleri
+python-dotenv>=1.0

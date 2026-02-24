@@ -1,0 +1,5 @@
+envs_dirs:
+  - F:\code\parlakbeton.com\.conda\envs
+pkgs_dirs:
+  - F:\code\parlakbeton.com\.conda\pkgs
+auto_activate_base: false
