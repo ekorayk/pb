@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Parlak Beton — v5.1 Editorial + Liquid Glass</title>
+    <meta name="description"
+        content="Parlak Beton A.Ş. — Beton parlatma, lityum silikat kristalizasyonu, mobil robot zemini. 15+ yıl deneyim, 200+ proje." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,200&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --white: #FAFAF8;
+            --black: #0C0C0A;
+            --grey: #B0A898;
+            --grey-l: #E8E4DE;
+            --grey-d: #3A3830;
+            --border: rgba(0, 0, 0, .1);
+            --border-w: rgba(255, 255, 255, .12);
+            --ease: cubic-bezier(.16, 1, .3, 1);
+            --pad: 48px;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* NOISE */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: .025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px
+        }
+
+        /* ── LIQUID GLASS NAV ── */
+        nav {
+            position: fixed;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(96vw, 1320px);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10px 10px 20px;
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, .22);
+            border-radius: 100px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .12), inset 0 1px 0 rgba(255, 255, 255, .3);
+            animation: navIn .7s var(--ease) both;
+        }
+
+        @keyframes navIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0)
+            }
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .12) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, .06) 100%);
+            pointer-events: none
+        }
+
+        .logo-nav {
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center
+        }
+
+        .logo-nav img {
+            height: 34px;
+            width: auto;
+            filter: brightness(0) invert(1)
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+            position: relative;
+            z-index: 1
+        }
+
+        .nav-links a {
+            font-size: .75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .8);
+            text-decoration: none;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            transition: color .2s
+        }
+
+        .nav-links a:hover {
+            color: #fff
+        }
+
+        .nav-cta {
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: .04em;
+            background: rgba(255, 255, 255, .92);
+            padding: 10px 20px;
+            border-radius: 100px;
+            transition: transform .25s var(--ease), box-shadow .25s;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .15)
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+            overflow: hidden;
+            background: var(--black)
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('http://parlakbeton.com/wp-content/uploads/2024/04/parlak-beton-parlatma-032-1920x1080-1.jpg') center/cover;
+            filter: brightness(.5) contrast(1.1) saturate(.65);
+            animation: heroZ 14s ease-in-out infinite alternate
+        }
+
+        @keyframes heroZ {
+            from {
+                transform: scale(1.04)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 var(--pad) 48px
+        }
+
+        /* Glass badge */
+        .glass-badge {
+            position: absolute;
+            top: 88px;
+            left: var(--pad);
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 100px;
+            padding: 7px 16px 7px 10px;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .75);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .1), inset 0 1px 0 rgba(255, 255, 255, .2);
+            animation: fadeUp .7s .3s var(--ease) both;
+        }
+
+        .glass-badge::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 50%);
+            pointer-events: none
+        }
+
+        .gb-dot {
+            width: 6px;
+            height: 6px;
+            background: #25D366;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 2s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, .4)
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(37, 211, 102, 0)
+            }
+        }
+
+        /* REV#1: Marka adı baskın */
+        .hero-brand {
+            font-size: clamp(1rem, 2vw, 1.6rem);
+            font-weight: 300;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 12px;
+            animation: fadeUp .7s .35s var(--ease) both;
+        }
+
+        .hero-h {
+            font-size: clamp(3.8rem, 13vw, 14rem);
+            font-weight: 900;
+            letter-spacing: -.07em;
+            line-height: .88;
+            color: var(--white);
+            margin-bottom: 0;
+            animation: fadeUp .8s .45s var(--ease) both;
+        }
+
+        .hero-h .thin {
+            font-weight: 200;
+            opacity: .35
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-top: 28px;
+            gap: 24px;
+            animation: fadeUp .7s .6s var(--ease) both
+        }
+
+        .hero-sub {
+            font-size: .95rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, .5);
+            max-width: 380px;
+            font-weight: 300
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px
+        }
+
+        .btn-hero {
+            background: var(--white);
+            color: var(--black);
+            font-weight: 800;
+            font-size: .85rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform .3s var(--ease), box-shadow .3s;
+        }
+
+        .btn-hero:hover {
+            transform: scale(1.04) translateY(-2px);
+            box-shadow: 0 14px 44px rgba(0, 0, 0, .3)
+        }
+
+        /* REV#4: Hero telefon */
+        .hero-tel {
+            font-size: .82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .6);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color .2s
+        }
+
+        .hero-tel:hover {
+            color: rgba(255, 255, 255, .9)
+        }
+
+        .hero-tel .dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, .3);
+            border-radius: 50%
+        }
+
+        .hero-scroll {
+            font-size: .68rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: blink 2s ease-in-out infinite
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: .3
+            }
+
+            50% {
+                opacity: .65
+            }
+        }
+
+        .scroll-line {
+            width: 28px;
+            height: 1px;
+            background: currentColor
+        }
+
+        /* Glass stat panel — REV#3: sol alt */
+        .glass-panel {
+            position: absolute;
+            z-index: 3;
+            bottom: 48px;
+            right: var(--pad);
+            display: flex;
+            gap: 8px;
+            animation: fadeUp .8s .8s var(--ease) both;
+        }
+
+        .gp-card {
+            padding: 18px 22px;
+            min-width: 130px;
+            background: rgba(255, 255, 255, .07);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 16px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(255, 255, 255, .25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gp-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(160deg, rgba(255, 255, 255, .2) 0%, transparent 40%);
+            pointer-events: none
+        }
+
+        .gp-n {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -.04em;
+            color: var(--white);
+            display: block
+        }
+
+        .gp-l {
+            font-size: .65rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, .45);
+            letter-spacing: .04em;
+            margin-top: 2px
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── STATEMENT ── */
+        .statement {
+            background: var(--white);
+            padding: clamp(64px, 10vw, 140px) var(--pad);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden
+        }
+
+        .stmt-text {
+            font-size: clamp(2rem, 5vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: -.04em;
+            line-height: 1.02;
+            max-width: 1000px
+        }
+
+        .stmt-text em {
+            font-style: italic;
+            font-weight: 200;
+            color: var(--grey)
+        }
+
+        /* REV#7: Lityum silikat açıklama — glass card */
+        .glass-aside {
+            background: rgba(0, 0, 0, .03);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 36px;
+            margin-top: 48px;
+            max-width: 480px;
+            margin-left: auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+        }
+
+        .glass-aside::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(160deg, rgba(255, 255, 255, .5) 0%, transparent 35%);
+            pointer-events: none
+        }
+
+        .glass-aside p {
+            font-size: .85rem;
+            line-height: 1.7;
+            color: var(--grey-d);
+            font-weight: 300
+        }
+
+        .glass-aside .tech-note {
+            margin-top: 14px;
+            font-size: .75rem;
+            color: var(--grey);
+            font-style: italic;
+            border-top: 1px solid var(--border);
+            padding-top: 12px
+        }
+
+        /* ── NUMBERS ── */
+        .numbers {
+            background: var(--black);
+            padding: clamp(48px, 6vw, 80px) var(--pad);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .num-item {
+            padding: 32px 24px;
+            border-right: 1px solid var(--border-w)
+        }
+
+        .num-item:last-child {
+            border-right: none
+        }
+
+        .num-n {
+            font-size: clamp(2.8rem, 6vw, 7rem);
+            font-weight: 900;
+            letter-spacing: -.06em;
+            color: var(--white);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px
+        }
+
+        .num-l {
+            font-size: .72rem;
+            font-weight: 400;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--grey)
+        }
+
+        /* ── HİZMETLER ── */
+        .services {
+            background: var(--white);
+            padding: clamp(64px, 8vw, 120px) var(--pad) 0
+        }
+
+        .sv-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px
+        }
+
+        .sv-h {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -.04em
+        }
+
+        .sv-count {
+            font-size: .75rem;
+            color: var(--grey);
+            letter-spacing: .08em
+        }
+
+        .sv-list {
+            list-style: none
+        }
+
+        .sv-item {
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden
+        }
+
+        .sv-item-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0;
+            cursor: default;
+            transition: padding .4s var(--ease)
+        }
+
+        .sv-item:hover .sv-item-inner {
+            padding: 28px 28px
+        }
+
+        .sv-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--black);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+            z-index: 0
+        }
+
+        .sv-item:hover::before {
+            transform: scaleX(1)
+        }
+
+        /* Mobile: active state instead of hover */
+        .sv-item:active::before {
+            transform: scaleX(1)
+        }
+
+        .sv-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 1
+        }
+
+        .sv-num {
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            color: var(--grey);
+            transition: color .3s
+        }
+
+        .sv-item:hover .sv-num,
+        .sv-item:active .sv-num {
+            color: rgba(255, 255, 255, .4)
+        }
+
+        .sv-name {
+            font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -.03em;
+            transition: color .3s
+        }
+
+        .sv-item:hover .sv-name,
+        .sv-item:active .sv-name {
+            color: var(--white)
+        }
+
+        .sv-right {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .sv-tag {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--grey);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 100px;
+            transition: all .3s
+        }
+
+        .sv-item:hover .sv-tag,
+        .sv-item:active .sv-tag {
+            border-color: rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .sv-arrow {
+            font-size: 1.1rem;
+            color: var(--grey-l);
+            transform: rotate(-45deg);
+            transition: transform .4s var(--ease), color .3s
+        }
+
+        .sv-item:hover .sv-arrow,
+        .sv-item:active .sv-arrow {
+            transform: rotate(0deg);
+            color: var(--white)
+        }
+
+        /* ── FULL PHOTO ── */
+        .full-photo {
+            width: 100%;
+            aspect-ratio: 21/9;
+            overflow: hidden;
+            position: relative
+        }
+
+        .full-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(.7);
+            transition: transform 8s ease
+        }
+
+        .full-photo:hover img {
+            transform: scale(1.03)
+        }
+
+        .full-photo-cap {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--pad);
+            background: linear-gradient(0deg, rgba(12, 12, 10, .7), transparent);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between
+        }
+
+        .fpc-l {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .fpc-r {
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35)
+        }
+
+        /* ── BEFORE/AFTER ── */
+        .ba {
+            background: var(--white);
+            padding: clamp(64px, 8vw, 120px) var(--pad)
+        }
+
+        .sec-label {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--grey);
+            margin-bottom: 16px
+        }
+
+        .sec-h {
+            font-size: clamp(2rem, 4.5vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -.045em;
+            line-height: 1;
+            margin-bottom: 48px
+        }
+
+        .sec-h .thin {
+            font-weight: 200;
+            color: var(--grey)
+        }
+
+        .ba-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 21/8;
+            overflow: hidden;
+            cursor: col-resize;
+            user-select: none;
+            border-radius: 4px
+        }
+
+        .ba-before,
+        .ba-after {
+            position: absolute;
+            inset: 0
+        }
+
+        .ba-before img,
+        .ba-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .ba-after {
+            z-index: 2;
+            clip-path: inset(0 50% 0 0)
+        }
+
+        .ba-div {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, .8);
+            z-index: 3;
+            pointer-events: none;
+            transform: translateX(-50%)
+        }
+
+        .ba-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            z-index: 4;
+            pointer-events: none;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .3)
+        }
+
+        .ba-tag {
+            position: absolute;
+            z-index: 5;
+            bottom: 20px;
+            background: rgba(12, 12, 10, .7);
+            backdrop-filter: blur(8px);
+            color: rgba(255, 255, 255, .8);
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px
+        }
+
+        .ba-tag.l {
+            left: 20px
+        }
+
+        .ba-tag.r {
+            right: 20px
+        }
+
+        /* ── GALERİ STRIP ── */
+        .gallery-strip {
+            background: var(--black);
+            padding: clamp(48px, 6vw, 80px) 0;
+            overflow: hidden
+        }
+
+        .gs-label {
+            padding: 0 var(--pad);
+            margin-bottom: 32px;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--grey)
+        }
+
+        .strip-track {
+            display: flex;
+            gap: 10px;
+            padding: 0 var(--pad);
+            overflow-x: auto;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+            cursor: grab;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .strip-track::-webkit-scrollbar {
+            display: none
+        }
+
+        .strip-item {
+            flex: 0 0 auto;
+            width: clamp(240px, 32vw, 420px);
+            aspect-ratio: 4/3;
+            border-radius: 6px;
+            overflow: hidden;
+            scroll-snap-align: start
+        }
+
+        .strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(.6) brightness(.85);
+            transition: filter .5s
+        }
+
+        .strip-item:hover img {
+            filter: saturate(1) brightness(.95)
+        }
+
+        /* ── REV#6: SÜREÇ ADIMLARI ── */
+        .process {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: clamp(64px, 8vw, 120px) var(--pad)
+        }
+
+        .proc-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+            margin-top: 48px
+        }
+
+        .proc-step {
+            background: rgba(0, 0, 0, .02);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 14px;
+            text-align: center;
+            transition: border-color .3s, box-shadow .3s, transform .35s var(--ease)
+        }
+
+        .proc-step:hover,
+        .proc-step:active {
+            border-color: var(--grey-l);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .06);
+            transform: translateY(-4px)
+        }
+
+        .proc-n {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -.06em;
+            color: var(--grey-l);
+            display: block;
+            margin-bottom: 10px;
+            transition: color .3s
+        }
+
+        .proc-step:hover .proc-n {
+            color: var(--grey)
+        }
+
+        .proc-l {
+            font-size: .75rem;
+            line-height: 1.4;
+            color: var(--grey-d);
+            font-weight: 500
+        }
+
+        .proc-sub {
+            font-size: .68rem;
+            color: var(--grey);
+            margin-top: 4px;
+            line-height: 1.3
+        }
+
+        /* ── REFERANSLAR ── */
+        .refs {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: clamp(64px, 8vw, 120px) var(--pad)
+        }
+
+        .refs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 48px
+        }
+
+        .ref {
+            background: var(--white);
+            padding: 40px 36px;
+            transition: background .3s, color .3s
+        }
+
+        .ref:hover {
+            background: var(--black)
+        }
+
+        .ref:hover .ref-q,
+        .ref:hover .ref-co,
+        .ref:hover .ref-role {
+            color: var(--white)
+        }
+
+        .ref:hover .ref-sep {
+            background: var(--grey)
+        }
+
+        .ref-q {
+            font-size: .95rem;
+            line-height: 1.7;
+            color: var(--grey-d);
+            font-style: italic;
+            margin-bottom: 28px;
+            transition: color .3s
+        }
+
+        .ref-sep {
+            width: 20px;
+            height: 2px;
+            background: var(--grey-l);
+            margin-bottom: 12px;
+            transition: background .3s
+        }
+
+        .ref-co {
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--black);
+            transition: color .3s
+        }
+
+        .ref-role {
+            font-size: .72rem;
+            color: var(--grey);
+            margin-top: 2px;
+            transition: color .3s
+        }
+
+        /* ── REV#9: MÜŞTERİ LOGOLARI ── */
+        .logo-strip {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 32px var(--pad)
+        }
+
+        .ls-label {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--grey);
+            text-align: center;
+            margin-bottom: 20px
+        }
+
+        .ls-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap
+        }
+
+        .ls-logo {
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--grey-l);
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            transition: color .2s;
+            padding: 6px 0
+        }
+
+        .ls-logo:hover {
+            color: var(--grey)
+        }
+
+        /* ── REV#5: İLETİŞİM FORMU ── */
+        .contact {
+            background: var(--black);
+            padding: clamp(64px, 10vw, 140px) var(--pad);
+            position: relative;
+            overflow: hidden
+        }
+
+        .cta-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(5rem, 16vw, 20rem);
+            font-weight: 900;
+            letter-spacing: -.07em;
+            color: rgba(255, 255, 255, .025);
+            pointer-events: none;
+            white-space: nowrap;
+            user-select: none
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            position: relative;
+            z-index: 1
+        }
+
+        .contact-h {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: -.04em;
+            line-height: 1.05;
+            color: var(--white);
+            margin-bottom: 16px
+        }
+
+        .contact-h .thin {
+            font-weight: 200;
+            color: rgba(255, 255, 255, .25)
+        }
+
+        .contact-p {
+            font-size: .9rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: 36px
+        }
+
+        .cd {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px
+        }
+
+        .cd-icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            background: rgba(255, 255, 255, .04)
+        }
+
+        .cd-txt {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .55)
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+        }
+
+        .fg {
+            margin-bottom: 12px
+        }
+
+        .fl {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--grey);
+            display: block;
+            margin-bottom: 5px
+        }
+
+        .fi {
+            width: 100%;
+            background: rgba(0, 0, 0, .03);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 13px 16px;
+            font-family: inherit;
+            font-size: .88rem;
+            color: var(--black);
+            outline: none;
+            transition: border-color .2s, background .2s;
+            -webkit-appearance: none
+        }
+
+        .fi::placeholder {
+            color: var(--grey)
+        }
+
+        .fi:focus {
+            border-color: var(--grey);
+            background: var(--white)
+        }
+
+        select.fi {
+            cursor: pointer
+        }
+
+        .frow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .fsub {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            font-family: inherit;
+            font-size: .9rem;
+            font-weight: 800;
+            padding: 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 4px;
+            letter-spacing: .01em;
+            transition: transform .25s var(--ease), box-shadow .25s
+        }
+
+        .fsub:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, .3)
+        }
+
+        .fpriv {
+            font-size: .66rem;
+            color: var(--grey);
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.4
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black);
+            border-top: 1px solid var(--border-w);
+            padding: 28px var(--pad);
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .f-logo img {
+            height: 22px;
+            width: auto;
+            filter: invert(1);
+            opacity: .35
+        }
+
+        .f-copy {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .2);
+            letter-spacing: .03em
+        }
+
+        /* ── WA FIXED ── */
+        .wa-fixed {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 400;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, .3);
+            transition: transform .3s var(--ease), box-shadow .3s
+        }
+
+        .wa-fixed:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 10px 36px rgba(37, 211, 102, .45)
+        }
+
+        .wa-fixed svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease)
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .rd1 {
+            transition-delay: .1s
+        }
+
+        .rd2 {
+            transition-delay: .2s
+        }
+
+        .rd3 {
+            transition-delay: .3s
+        }
+
+        .mvt {
+            position: fixed;
+            top: 6px;
+            right: 10px;
+            background: rgba(0, 0, 0, .06);
+            border-radius: 5px;
+            padding: 3px 8px;
+            font-size: .58rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            color: var(--grey);
+            text-transform: uppercase;
+            z-index: 600
+        }
+
+        /* ══════════════════════════════════════════════════
+   RESPONSIVE — MOBİL ÖNCELİKLİ
+   ══════════════════════════════════════════════════ */
+
+        /* Tablet dikey (768px) */
+        @media(max-width:900px) {
+            :root {
+                --pad: 28px
+            }
+
+            nav {
+                top: 8px;
+                padding: 8px 8px 8px 14px
+            }
+
+            .logo-nav img {
+                height: 28px
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .nav-cta {
+                font-size: .7rem;
+                padding: 9px 16px
+            }
+
+            .hero-brand {
+                font-size: .85rem;
+                letter-spacing: .2em
+            }
+
+            .hero-h {
+                font-size: clamp(3.2rem, 11vw, 6rem)
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .hero-right {
+                align-items: flex-start;
+                flex-direction: row;
+                gap: 12px;
+                flex-wrap: wrap
+            }
+
+            .glass-panel {
+                right: var(--pad);
+                bottom: auto;
+                top: auto;
+                position: relative;
+                margin-top: 24px;
+                width: 100%;
+                flex-wrap: wrap
+            }
+
+            .gp-card {
+                flex: 1;
+                min-width: 0
+            }
+
+            .glass-badge {
+                top: 72px;
+                left: var(--pad);
+                font-size: .62rem;
+                padding: 6px 12px 6px 8px
+            }
+
+            .numbers {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .num-n {
+                font-size: clamp(2.5rem, 8vw, 4rem)
+            }
+
+            .num-item {
+                padding: 24px 16px
+            }
+
+            .sv-item-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 24px 0
+            }
+
+            .sv-item:hover .sv-item-inner,
+            .sv-item:active .sv-item-inner {
+                padding: 24px 16px
+            }
+
+            .full-photo {
+                aspect-ratio: 16/9
+            }
+
+            .ba-wrap {
+                aspect-ratio: 16/9
+            }
+
+            .proc-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .refs-grid {
+                grid-template-columns: 1fr
+            }
+
+            .ref {
+                padding: 32px 28px
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .ls-logos {
+                gap: 20px
+            }
+        }
+
+        /* Mobil (480px ve altı) */
+        @media(max-width:480px) {
+            :root {
+                --pad: 20px
+            }
+
+            nav {
+                top: 6px;
+                border-radius: 60px
+            }
+
+            .logo-nav img {
+                height: 24px
+            }
+
+            .nav-cta {
+                font-size: .65rem;
+                padding: 8px 14px
+            }
+
+            .glass-badge {
+                top: 64px;
+                font-size: .58rem
+            }
+
+            .hero-brand {
+                font-size: .72rem;
+                letter-spacing: .15em;
+                margin-bottom: 8px
+            }
+
+            .hero-h {
+                font-size: clamp(2.8rem, 14vw, 5rem);
+                letter-spacing: -.06em
+            }
+
+            .hero-sub {
+                font-size: .82rem;
+                line-height: 1.55
+            }
+
+            .btn-hero {
+                font-size: .78rem;
+                padding: 14px 24px
+            }
+
+            .hero-tel {
+                font-size: .75rem
+            }
+
+            .glass-panel {
+                gap: 6px
+            }
+
+            .gp-card {
+                padding: 14px 16px
+            }
+
+            .gp-n {
+                font-size: 1.2rem
+            }
+
+            .gp-l {
+                font-size: .58rem
+            }
+
+            .stmt-text {
+                font-size: clamp(1.6rem, 7vw, 2.5rem)
+            }
+
+            .glass-aside {
+                padding: 24px;
+                margin-top: 28px
+            }
+
+            .numbers {
+                grid-template-columns: 1fr 1fr;
+                padding: 32px var(--pad)
+            }
+
+            .num-n {
+                font-size: clamp(2rem, 10vw, 3rem)
+            }
+
+            .num-item {
+                padding: 16px 12px
+            }
+
+            .sv-name {
+                font-size: clamp(1.1rem, 5vw, 1.5rem)
+            }
+
+            .full-photo {
+                aspect-ratio: 4/3
+            }
+
+            .full-photo-cap {
+                padding: 24px var(--pad)
+            }
+
+            .ba-wrap {
+                aspect-ratio: 3/2
+            }
+
+            .proc-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px
+            }
+
+            .proc-step {
+                padding: 20px 10px
+            }
+
+            .proc-n {
+                font-size: 1.4rem
+            }
+
+            .proc-l {
+                font-size: .68rem
+            }
+
+            .sec-h {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+                margin-bottom: 32px
+            }
+
+            .frow {
+                grid-template-columns: 1fr
+            }
+
+            .form-card {
+                padding: 28px 24px
+            }
+
+            .wa-fixed {
+                bottom: 16px;
+                right: 16px;
+                width: 48px;
+                height: 48px
+            }
+
+            .wa-fixed svg {
+                width: 22px;
+                height: 22px
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+                padding: 24px var(--pad)
+            }
+
+            .ls-logos {
+                gap: 14px
+            }
+
+            .ls-logo {
+                font-size: .75rem
+            }
+
+            .cta-info {
+                flex-direction: column;
+                gap: 16px
+            }
+        }
+
+        /* Tablet yatay (landscape) */
+        @media(min-width:481px) and (max-width:900px) and (orientation:landscape) {
+            .hero {
+                min-height: 100vh
+            }
+
+            .hero-h {
+                font-size: clamp(3rem, 8vw, 5rem)
+            }
+
+            .glass-panel {
+                flex-direction: row
+            }
+
+            .gp-card {
+                flex: 1
+            }
+
+            .numbers {
+                grid-template-columns: repeat(4, 1fr)
+            }
+
+            .proc-grid {
+                grid-template-columns: repeat(6, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG Liquid Glass -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="liquid-glass" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="2" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"
+                    result="refracted" />
+                <feGaussianBlur in="refracted" stdDeviation="0.4" result="blurred" />
+                <feSpecularLighting in="noise" surfaceScale="2" specularConstant=".7" specularExponent="20"
+                    result="spec">
+                    <fePointLight x="200" y="100" z="300" />
+                </feSpecularLighting>
+                <feComposite in="spec" in2="SourceAlpha" operator="in" result="specMask" />
+                <feBlend in="blurred" in2="specMask" mode="screen" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div class="mvt">v5.1 — Editorial + Liquid Glass</div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="logo-nav"><img src="assets/logos/XX1.png" alt="Parlak Beton A.Ş." /></a>
+        <ul class="nav-links">
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#referanslar">Referanslar</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+        <a href="#iletisim" class="nav-cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+            Keşif Talep Et
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+
+        <div class="glass-badge">
+            <span class="gb-dot"></span>
+            Türkiye'nin Zemin Uzmanı · 2009
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-brand">Parlak Beton A.Ş.</p>
+            <h1 class="hero-h">
+                <span class="thin">Zemin</span><br>
+                Dönüşümü.
+            </h1>
+            <div class="hero-bottom">
+                <p class="hero-sub">
+                    Mekanik beton parlatma ve lityum silikat uygulamasıyla
+                    zemin kalıcı olarak parlar, sertleşir ve tozumaz hale gelir.
+                </p>
+                <div class="hero-right">
+                    <a href="#iletisim" class="btn-hero">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        Ücretsiz Keşif
+                    </a>
+                    <a href="tel:+905072185318" class="hero-tel">
+                        📞 0507 218 53 18 <span class="dot"></span> Hemen Arayın
+                    </a>
+                    <div class="hero-scroll"><span class="scroll-line"></span>Aşağı Kaydır</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel">
+            <div class="gp-card"><span class="gp-n">15+</span><span class="gp-l">Yıl Deneyim</span></div>
+            <div class="gp-card"><span class="gp-n">200+</span><span class="gp-l">Tamamlanan Proje</span></div>
+            <div class="gp-card"><span class="gp-n">≥ 0.42</span><span class="gp-l">DCOF Garantisi</span></div>
+        </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="statement">
+        <p class="stmt-text reveal">
+            Türkiye'nin en <em>tozlu</em> fabrikalarını,<br>
+            en <em>parlak</em> zemine dönüştürüyoruz.
+        </p>
+        <div class="glass-aside reveal rd2">
+            <p>15 yıldır Ankara, İstanbul ve İzmir'de 200'ü aşkın fabrika ve depo zemini lityum silikat kristalizasyonu
+                ile kalıcı olarak yenilendi.</p>
+            <p class="tech-note">Lityum silikat kristalizasyonu: zemini moleküler düzeyde sertleştiren, tozumayı kalıcı
+                olarak durduran kimyasal reaksiyon.</p>
+        </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <div class="numbers">
+        <div class="num-item reveal"><span class="num-n">15+</span><span class="num-l">Yıl Deneyim</span></div>
+        <div class="num-item reveal rd1"><span class="num-n">200+</span><span class="num-l">Tamamlanan Proje</span>
+        </div>
+        <div class="num-item reveal rd2"><span class="num-n">3</span><span class="num-l">Şehirde Aktif Ekip</span></div>
+        <div class="num-item reveal rd3"><span class="num-n">≥0.42</span><span class="num-l">DCOF Garantisi</span></div>
+    </div>
+
+    <!-- HİZMETLER -->
+    <section class="services" id="hizmetler">
+        <div class="sv-header reveal">
+            <h2 class="sv-h">Hizmetler</h2><span class="sv-count">3 Hizmet</span>
+        </div>
+        <ul class="sv-list">
+            <li class="sv-item reveal">
+                <div class="sv-item-inner">
+                    <div class="sv-left"><span class="sv-num">01</span><span class="sv-name">Beton Parlatma</span></div>
+                    <div class="sv-right"><span class="sv-tag">Temel Hizmet</span><span class="sv-arrow">↗</span></div>
+                </div>
+            </li>
+            <li class="sv-item reveal rd1">
+                <div class="sv-item-inner">
+                    <div class="sv-left"><span class="sv-num">02</span><span class="sv-name">Mobil Robot Zemini</span>
+                    </div>
+                    <div class="sv-right"><span class="sv-tag">AGV / AMR</span><span class="sv-arrow">↗</span></div>
+                </div>
+            </li>
+            <li class="sv-item reveal rd2">
+                <div class="sv-item-inner">
+                    <div class="sv-left"><span class="sv-num">03</span><span class="sv-name">Fabrika &amp; Depo
+                            Zemini</span></div>
+                    <div class="sv-right"><span class="sv-tag">Endüstriyel</span><span class="sv-arrow">↗</span></div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- FULL PHOTO -->
+    <div class="full-photo">
+        <img src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091103.jpg" alt="Proje"
+            loading="lazy" />
+        <div class="full-photo-cap"><span class="fpc-l">Proje Galerisi</span><span class="fpc-r">Endüstriyel Beton
+                Parlatma</span></div>
+    </div>
+
+    <!-- BEFORE/AFTER -->
+    <section class="ba" id="onceson">
+        <p class="sec-label reveal">Önce &amp; Sonra</p>
+        <h2 class="sec-h reveal">Farkı <span class="thin">kendiniz görün</span></h2>
+        <div class="ba-wrap" id="ba">
+            <div class="ba-before"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1800x1400-009.jpg" alt="Önce"
+                    loading="lazy" /></div>
+            <div class="ba-after" id="baAfter"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2024/05/parlak-beton-parlatma-135-1920x1080-1.jpg"
+                    alt="Sonra" loading="lazy" /></div>
+            <div class="ba-div" id="baDiv"></div>
+            <div class="ba-icon" id="baIcon">⟺</div>
+            <span class="ba-tag l">Önce</span><span class="ba-tag r">Sonra</span>
+        </div>
+    </section>
+
+    <!-- GALERİ STRIP -->
+    <section class="gallery-strip" id="galeri">
+        <p class="gs-label">Tamamlanan Projeler</p>
+        <div class="strip-track" id="strip">
+            <div class="strip-item"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1800x1400-006.jpg" alt=""
+                    loading="lazy" /></div>
+            <div class="strip-item"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091108.jpg" alt=""
+                    loading="lazy" /></div>
+            <div class="strip-item"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091113.jpg" alt=""
+                    loading="lazy" /></div>
+            <div class="strip-item"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2024/12/mobil-robotlar-icin-zemin-005.jpg" alt=""
+                    loading="lazy" /></div>
+            <div class="strip-item"><img
+                    src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1300x900-004.jpg" alt=""
+                    loading="lazy" /></div>
+        </div>
+    </section>
+
+    <!-- REV#6: SÜREÇ -->
+    <section class="process" id="surec">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="sec-label reveal">Uygulama Süreci</p>
+            <h2 class="sec-h reveal">Adım <span class="thin">Adım</span></h2>
+            <div class="proc-grid">
+                <div class="proc-step reveal"><span class="proc-n">01</span>
+                    <p class="proc-l">Zemin Analizi</p>
+                    <p class="proc-sub">Sertlik, düzlük, hasar tespiti</p>
+                </div>
+                <div class="proc-step reveal rd1"><span class="proc-n">02</span>
+                    <p class="proc-l">Tamirat & Hazırlık</p>
+                    <p class="proc-sub">Çatlak ve hasar onarımı</p>
+                </div>
+                <div class="proc-step reveal rd1"><span class="proc-n">03</span>
+                    <p class="proc-l">Kaba Öğütme</p>
+                    <p class="proc-sub">Elmas disk kademeleri</p>
+                </div>
+                <div class="proc-step reveal rd2"><span class="proc-n">04</span>
+                    <p class="proc-l">Lityum Silikat</p>
+                    <p class="proc-sub">Derinlemesine sertleştirir</p>
+                </div>
+                <div class="proc-step reveal rd2"><span class="proc-n">05</span>
+                    <p class="proc-l">İnce Parlatma</p>
+                    <p class="proc-sub">Ayna yüzey kademesi</p>
+                </div>
+                <div class="proc-step reveal rd3"><span class="proc-n">06</span>
+                    <p class="proc-l">Koruyucu</p>
+                    <p class="proc-sub">Penetrant sealer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERANSLAR -->
+    <section class="refs" id="referanslar">
+        <p class="sec-label reveal">Müşteri Görüşleri</p>
+        <h2 class="sec-h reveal">Başarı <span class="thin">Hikayeleri</span></h2>
+        <div class="refs-grid">
+            <div class="ref reveal">
+                <p class="ref-q">"Parlak Beton uygulaması fabrikamızda toz sorununu tamamen çözdü. AGV robotlarımız
+                    artık çok daha verimli çalışıyor."</p>
+                <div class="ref-sep"></div>
+                <p class="ref-co">Debak Denizli</p>
+                <p class="ref-role">Üretim Direktörü</p>
+            </div>
+            <div class="ref reveal rd1">
+                <p class="ref-q">"Zemin parlaklığı sayesinde aydınlatma maliyetimiz %20 düştü. Teknik yaklaşımları son
+                    derece profesyonel."</p>
+                <div class="ref-sep"></div>
+                <p class="ref-co">Garanti İplik</p>
+                <p class="ref-role">Tesis Yöneticisi</p>
+            </div>
+            <div class="ref reveal rd1">
+                <p class="ref-q">"Epoksi yerine Parlak Beton seçtik — 3 yıldır sıfır bakım. Doğru seçim."</p>
+                <div class="ref-sep"></div>
+                <p class="ref-co">Tedak Elektrik</p>
+                <p class="ref-role">Fabrika Müdürü</p>
+            </div>
+            <div class="ref reveal rd2">
+                <p class="ref-q">"Zemin analizi ve kalite raporu çok detaylıydı. Güvenilir ve şeffaf bir iş ortağı."</p>
+                <div class="ref-sep"></div>
+                <p class="ref-co">Akgün Elektrik</p>
+                <p class="ref-role">Satın Alma Direktörü</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGO STRIP -->
+    <div class="logo-strip">
+        <p class="ls-label">Güvenen Firmalar</p>
+        <div class="ls-logos">
+            <span class="ls-logo">Debak</span><span class="ls-logo">Garanti İplik</span>
+            <span class="ls-logo">Tedak</span><span class="ls-logo">Akgün Elektrik</span>
+            <span class="ls-logo">200+ Firma</span>
+        </div>
+    </div>
+
+    <!-- REV#5: İLETİŞİM FORMU -->
+    <section class="contact" id="iletisim">
+        <div class="cta-bg">PARLAK</div>
+        <p class="sec-label reveal" style="color:rgba(255,255,255,.3)">Keşif Talebi</p>
+        <h2 class="sec-h contact-h reveal"><span class="thin">Ücretsiz</span> Zemin Analizi</h2>
+        <div class="contact-grid">
+            <div class="reveal">
+                <p class="contact-p">Projenizi kısaca anlatın. 24 saat içinde uzmanımız arar, ücretsiz keşif randevusu
+                    planlar.</p>
+                <div class="cd">
+                    <div class="cd-icon">📞</div><span class="cd-txt">+90 507 218 53 18</span>
+                </div>
+                <div class="cd">
+                    <div class="cd-icon">✉️</div><span class="cd-txt">bilgi@parlakbeton.com</span>
+                </div>
+                <div class="cd">
+                    <div class="cd-icon">📍</div><span class="cd-txt">Ankara · İstanbul · İzmir</span>
+                </div>
+            </div>
+            <div class="form-card reveal rd1">
+                <div class="frow">
+                    <div class="fg"><label class="fl">Adınız</label><input class="fi" placeholder="Ad Soyad" /></div>
+                    <div class="fg"><label class="fl">Firma</label><input class="fi" placeholder="Firma Adı" /></div>
+                </div>
+                <div class="fg"><label class="fl">Telefon</label><input class="fi" type="tel"
+                        placeholder="0532 000 00 00" /></div>
+                <div class="frow">
+                    <div class="fg"><label class="fl">Alan (m²)</label>
+                        <select class="fi">
+                            <option value="">Seçin</option>
+                            <option>500–1.000 m²</option>
+                            <option>1.000–3.000 m²</option>
+                            <option>3.000–10.000 m²</option>
+                            <option>10.000 m²+</option>
+                        </select>
+                    </div>
+                    <div class="fg"><label class="fl">Şehir</label>
+                        <select class="fi">
+                            <option value="">Seçin</option>
+                            <option>Ankara</option>
+                            <option>İstanbul</option>
+                            <option>İzmir</option>
+                            <option>Diğer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fg"><label class="fl">Zemin Durumu</label>
+                    <select class="fi">
+                        <option value="">Seçin</option>
+                        <option>Ham beton</option>
+                        <option>Eski / kullanılmış beton</option>
+                        <option>Mevcut kaplama üstü</option>
+                        <option>Emin değilim</option>
+                    </select>
+                </div>
+                <button class="fsub">Keşif Talep Et →</button>
+                <p class="fpriv">KVKK kapsamında verileriniz yalnızca keşif için kullanılır.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="f-logo"><img src="assets/logos/XX1.png" alt="Parlak Beton A.Ş." /></div>
+        <span class="f-copy">© 2026 Parlak Beton A.Ş. · parlakbeton.com</span>
+    </footer>
+
+    <a href="https://wa.me/905072185318" class="wa-fixed" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        /* Scroll reveal */
+        const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } }) }, { threshold: .1 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        /* Before/After */
+        const ba = document.getElementById('ba'), baA = document.getElementById('baAfter'),
+            baD = document.getElementById('baDiv'), baI = document.getElementById('baIcon');
+        let drag = false;
+        function sp(x) {
+            const r = ba.getBoundingClientRect(), p = Math.max(3, Math.min(97, ((x - r.left) / r.width) * 100));
+            baA.style.clipPath = `inset(0 ${100 - p}% 0 0)`; baD.style.left = p + '%'; baI.style.left = p + '%'; baI.style.transform = 'translateX(-50%)'
+        }
+        ba.addEventListener('mousedown', e => { drag = true; sp(e.clientX) });
+        window.addEventListener('mousemove', e => { if (drag) sp(e.clientX) });
+        window.addEventListener('mouseup', () => drag = false);
+        ba.addEventListener('touchstart', e => { drag = true; sp(e.touches[0].clientX) }, { passive: true });
+        window.addEventListener('touchmove', e => { if (drag) sp(e.touches[0].clientX) }, { passive: true });
+        window.addEventListener('touchend', () => drag = false);
+
+        /* Gallery drag */
+        const strip = document.getElementById('strip');
+        let isD = false, sX, sL;
+        strip.addEventListener('mousedown', e => { isD = true; strip.style.cursor = 'grabbing'; sX = e.pageX - strip.offsetLeft; sL = strip.scrollLeft });
+        strip.addEventListener('mouseleave', () => { isD = false; strip.style.cursor = 'grab' });
+        strip.addEventListener('mouseup', () => { isD = false; strip.style.cursor = 'grab' });
+        strip.addEventListener('mousemove', e => { if (!isD) return; e.preventDefault(); strip.scrollLeft = sL - (e.pageX - strip.offsetLeft - sX) * 1.5 });
+    </script>
+</body>
+
+</html>
