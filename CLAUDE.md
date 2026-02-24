@@ -187,15 +187,24 @@ Yönetim Kurulu protokolü ve tüm persona dosyaları için → `.agent/board/RE
 | Skill | Tetikleyici | Üye |
 |-------|-------------|-----|
 | `ceo-advisor` | strateji, vizyon, büyüme, CEO | Alexander |
-| `cfo-advisor` | finans, bütçe, maliyet, CFO | Dilek |
+| `cfo-advisor` + `cfo-tr-advisor` | finans, KDV, e-fatura, maliyet, CFO | Dilek |
 | `cmo-advisor` | pazarlama, marka, kampanya, CMO | Serena |
-| `cso-advisor` | satış, teklif, lead, müşteri, CSO | Mehmet |
+| `cso-advisor` + `cso-whatsapp-scripts` | satış, teklif, WhatsApp, CSO | Mehmet |
 | `cto-advisor` | teknik, zemin, lityum, DCOF, CTO | Dr. Emre |
-| `coo-advisor` | operasyon, proje, saha, COO | Levent |
-| `chro-advisor` | IK, personel, işe alım, CHRO | Ayşe |
-| `cdo-advisor` | dijital, yazılım, API, CDO | Can |
-| `clo-advisor` | hukuk, sözleşme, KVKK, CLO | Neslihan |
+| `coo-advisor` + `coo-project-flow` | operasyon, proje akışı, saha, COO | Levent |
+| `chro-advisor` | IK, personel, taşeron, CHRO | Ayşe |
+| `cdo-advisor` + `cdo-infrastructure` | dijital, API, Proxmox, deploy, CDO | Can |
+| `clo-advisor` + `clo-tr-templates` | hukuk, sözleşme, KVKK, CLO | Neslihan |
 | `customer-success` | müşteri memnuniyeti, CXO | Pınar |
+
+### Frontend & Tasarım Skills (Anthropic Resmi + Custom)
+
+`frontend-design` · `frontend-premium-design` · `theme-factory` · `canvas-design`
+`brand-guidelines` · `web-artifacts-builder`
+
+### Belge Üretimi Skills (Anthropic Resmi)
+
+`pdf` · `docx` · `pptx` · `skill-creator`
 
 ### Pazarlama & Büyüme Skills
 
@@ -208,6 +217,7 @@ Yönetim Kurulu protokolü ve tüm persona dosyaları için → `.agent/board/RE
 
 `pricing-strategy` · `sales-advisor` · `revenue-operations` · `offer-generator` · `risk-management`
 
-### Geliştirme Skills
+### Geliştirme & Test Skills
 
-`component-builder` · `content-writer` · `image-optimize` · `shared-miniconda-project-env` · `skill-scout`
+`webapp-testing` · `component-builder` · `content-writer` · `image-optimize`
+`shared-miniconda-project-env` · `skill-scout`
