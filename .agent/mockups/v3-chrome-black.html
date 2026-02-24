@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Parlak Beton — v3 Chrome Black</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,900;1,9..40,300&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --black: #000;
+            --bg: #050507;
+            --s1: #0d0d10;
+            --s2: #141418;
+            --s3: #1c1c22;
+            --chrome-1: #f5f5f7;
+            --chrome-2: #c8c8cc;
+            --chrome-3: #909096;
+            --chrome-4: #505058;
+            --chrome-5: #2a2a32;
+            --border: rgba(255, 255, 255, .08);
+            --border-bright: rgba(255, 255, 255, .18);
+            --glass: rgba(255, 255, 255, .04);
+            --glass-h: rgba(255, 255, 255, .07);
+            --ease: cubic-bezier(.16, 1, .3, 1);
+            --ease-s: cubic-bezier(.4, 0, .2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--chrome-2);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ── CHROME TEXT ── */
+        .chrome {
+            background: linear-gradient(160deg, #fff 0%, #e0e0e0 25%, #a0a0a8 50%, #d8d8dc 75%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chrome-soft {
+            background: linear-gradient(135deg, #e8e8ec 0%, #a8a8b0 50%, #e8e8ec 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(94vw, 1280px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 28px;
+            background: rgba(5, 5, 7, .82);
+            backdrop-filter: blur(32px) saturate(180%);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            animation: navIn .9s var(--ease) both;
+        }
+
+        @keyframes navIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0)
+            }
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--chrome-1)
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+            font-weight: 900;
+            letter-spacing: .05em;
+            color: var(--chrome-1);
+            background: var(--glass-h)
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px
+        }
+
+        nav ul a {
+            font-size: .82rem;
+            font-weight: 400;
+            color: var(--chrome-4);
+            text-decoration: none;
+            letter-spacing: .01em;
+            transition: color .2s
+        }
+
+        nav ul a:hover {
+            color: var(--chrome-2)
+        }
+
+        .nav-cta {
+            background: var(--chrome-1);
+            color: #000;
+            font-size: .82rem;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform .25s var(--ease), box-shadow .25s, background .2s;
+            letter-spacing: .01em;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(255, 255, 255, .15);
+            background: #fff
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* left panel */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 80px 100px;
+            position: relative;
+            z-index: 2;
+            background: var(--bg);
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--chrome-3);
+            margin-bottom: 40px;
+            width: fit-content;
+            animation: fadeUp .8s .3s var(--ease) both;
+        }
+
+        .hero-tag-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--chrome-2);
+            border-radius: 50%;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero-h {
+            font-size: clamp(4.5rem, 8vw, 8rem);
+            font-weight: 900;
+            letter-spacing: -.055em;
+            line-height: .95;
+            margin-bottom: 48px;
+            animation: fadeUp .9s .45s var(--ease) both;
+        }
+
+        .hero-h .light {
+            font-weight: 200;
+            color: var(--chrome-4);
+            display: block
+        }
+
+        .hero-h .heavy {
+            display: block;
+            margin-top: .1em
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            animation: fadeUp .8s .6s var(--ease) both;
+        }
+
+        .btn-main {
+            background: var(--chrome-1);
+            color: #000;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .01em;
+            padding: 18px 36px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform .25s var(--ease), box-shadow .25s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 16px 50px rgba(255, 255, 255, .18)
+        }
+
+        .btn-main svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .btn-sec {
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--chrome-4);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s;
+        }
+
+        .btn-sec:hover {
+            color: var(--chrome-2)
+        }
+
+        /* right panel — foto */
+        .hero-right {
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(.7) contrast(1.1) saturate(.85)
+        }
+
+        /* gradient bleed left */
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 240px;
+            background: linear-gradient(90deg, var(--bg), transparent);
+            z-index: 1
+        }
+
+        /* gradient bleed bottom */
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(0deg, var(--bg), transparent);
+            z-index: 1
+        }
+
+        /* floating stats over photo */
+        .hero-stats {
+            position: absolute;
+            bottom: 48px;
+            right: 48px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: fadeUp .8s .75s var(--ease) both;
+        }
+
+        .h-stat {
+            background: rgba(5, 5, 7, .8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-bright);
+            border-radius: 14px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .h-stat-n {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--chrome-1);
+            letter-spacing: -.04em
+        }
+
+        .h-stat-l {
+            font-size: .72rem;
+            color: var(--chrome-4);
+            font-weight: 400
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── TICKER / SCROLLING TEXT ── */
+        .ticker-wrap {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--s1);
+            padding: 18px 0;
+        }
+
+        .ticker {
+            display: flex;
+            gap: 0;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite
+        }
+
+        @keyframes ticker {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .ticker-item {
+            font-size: .8rem;
+            font-weight: 500;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--chrome-5);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ticker-item::before {
+            content: '◆';
+            font-size: .5rem;
+            color: var(--chrome-4)
+        }
+
+        /* ── BEFORE/AFTER ── */
+        .ba-section {
+            padding: clamp(80px, 10vw, 140px) 80px;
+            background: var(--bg)
+        }
+
+        .section-label {
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--chrome-4);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -.04em;
+            line-height: 1.0;
+            margin-bottom: 64px;
+        }
+
+        .section-title .light {
+            font-weight: 200;
+            color: var(--chrome-5)
+        }
+
+        .ba-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 21/9;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: col-resize;
+            user-select: none;
+            border: 1px solid var(--border);
+        }
+
+        .ba-before,
+        .ba-after {
+            position: absolute;
+            inset: 0
+        }
+
+        .ba-before img,
+        .ba-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .ba-after {
+            z-index: 2;
+            clip-path: inset(0 50% 0 0)
+        }
+
+        .ba-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, .8);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .ba-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: var(--chrome-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            z-index: 4;
+            pointer-events: none;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
+        }
+
+        .ba-tag {
+            position: absolute;
+            bottom: 24px;
+            z-index: 5;
+            background: rgba(0, 0, 0, .75);
+            backdrop-filter: blur(10px);
+            color: var(--chrome-2);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+        }
+
+        .ba-tag.left {
+            left: 24px
+        }
+
+        .ba-tag.right {
+            right: 24px
+        }
+
+        /* ── BENTO GALERİ ── */
+        .gallery {
+            padding: 0 80px clamp(80px, 10vw, 140px);
+            background: var(--bg)
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            gap: 8px;
+            margin-top: 48px;
+        }
+
+        .bi {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: var(--s2)
+        }
+
+        .bi img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(.75) brightness(.85);
+            transition: filter .5s var(--ease), transform .6s var(--ease);
+        }
+
+        .bi:hover img {
+            filter: saturate(1) brightness(1);
+            transform: scale(1.04)
+        }
+
+        .bi:hover::after {
+            opacity: 1
+        }
+
+        .bi::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity .35s;
+        }
+
+        .b1 {
+            grid-column: span 8;
+            aspect-ratio: 16/9
+        }
+
+        .b2 {
+            grid-column: span 4;
+            aspect-ratio: 3/4
+        }
+
+        .b3 {
+            grid-column: span 4;
+            aspect-ratio: 4/3
+        }
+
+        .b4 {
+            grid-column: span 4;
+            aspect-ratio: 4/3
+        }
+
+        .b5 {
+            grid-column: span 4;
+            aspect-ratio: 4/3
+        }
+
+        /* ── HİZMETLER ── */
+        .services {
+            background: var(--s1);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: clamp(80px, 10vw, 140px) 80px;
+        }
+
+        .sv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 64px
+        }
+
+        .sv {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .sv img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(.45) saturate(.7);
+            transition: filter .5s var(--ease), transform .7s var(--ease);
+        }
+
+        .sv:hover img {
+            filter: brightness(.6) saturate(.9);
+            transform: scale(1.07)
+        }
+
+        .sv-body {
+            position: absolute;
+            inset: 0;
+            padding: 36px 32px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, .85) 0%, rgba(0, 0, 0, .1) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .sv-num {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -.06em;
+            color: rgba(255, 255, 255, .07);
+            margin-bottom: auto;
+            line-height: 1;
+        }
+
+        .sv-chip {
+            display: inline-block;
+            border: 1px solid var(--border-bright);
+            border-radius: 100px;
+            padding: 4px 14px;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--chrome-3);
+            margin-bottom: 14px;
+            width: fit-content;
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(8px);
+        }
+
+        .sv-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--chrome-1);
+            letter-spacing: -.02em;
+            margin-bottom: 10px
+        }
+
+        .sv-desc {
+            font-size: .85rem;
+            line-height: 1.65;
+            color: var(--chrome-4)
+        }
+
+        .sv-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--chrome-2);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity .3s, transform .3s var(--ease);
+        }
+
+        .sv:hover .sv-arrow {
+            opacity: 1;
+            transform: translateX(0)
+        }
+
+        /* ── SÜREÇ ── */
+        .process {
+            padding: clamp(80px, 10vw, 140px) 80px;
+            background: var(--bg)
+        }
+
+        .proc-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-top: 64px;
+        }
+
+        .proc-step {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 20px;
+            text-align: center;
+            transition: border-color .3s, background .3s, transform .35s var(--ease);
+            cursor: default;
+        }
+
+        .proc-step:hover {
+            border-color: var(--border-bright);
+            background: var(--glass-h);
+            transform: translateY(-8px);
+        }
+
+        .proc-n {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -.05em;
+            color: var(--chrome-5);
+            display: block;
+            margin-bottom: 16px;
+            transition: color .3s
+        }
+
+        .proc-step:hover .proc-n {
+            color: var(--chrome-2)
+        }
+
+        .proc-l {
+            font-size: .78rem;
+            line-height: 1.45;
+            color: var(--chrome-4)
+        }
+
+        /* ── REFERANSLAR ── */
+        .refs {
+            background: var(--s1);
+            border-top: 1px solid var(--border);
+            padding: clamp(80px, 10vw, 140px) 80px;
+        }
+
+        .refs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 64px
+        }
+
+        .ref {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 44px;
+            transition: border-color .3s, transform .35s var(--ease);
+        }
+
+        .ref:hover {
+            border-color: var(--border-bright);
+            transform: translateY(-5px)
+        }
+
+        .ref-quote-mark {
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--chrome-5);
+            margin-bottom: 12px;
+            font-family: Georgia, serif
+        }
+
+        .ref-q {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--chrome-3);
+            font-style: italic;
+            margin-bottom: 28px
+        }
+
+        .ref-sep {
+            width: 32px;
+            height: 1px;
+            background: var(--chrome-5);
+            margin-bottom: 20px
+        }
+
+        .ref-co {
+            font-size: .875rem;
+            font-weight: 700;
+            color: var(--chrome-1);
+            letter-spacing: .01em
+        }
+
+        .ref-role {
+            font-size: .78rem;
+            color: var(--chrome-4);
+            margin-top: 3px
+        }
+
+        /* ── İLETİŞİM ── */
+        .contact {
+            padding: clamp(80px, 10vw, 140px) 80px;
+            background: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+            margin-top: 64px
+        }
+
+        .contact-h {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: -.045em;
+            line-height: 1.05;
+            margin-bottom: 20px
+        }
+
+        .contact-h .light {
+            font-weight: 200;
+            color: var(--chrome-5)
+        }
+
+        .contact-p {
+            font-size: .95rem;
+            line-height: 1.8;
+            color: var(--chrome-4);
+            margin-bottom: 40px
+        }
+
+        .cd {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px
+        }
+
+        .cd-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            background: var(--glass);
+        }
+
+        .cd-txt {
+            font-size: .9rem;
+            color: var(--chrome-3)
+        }
+
+        .form-card {
+            background: var(--s1);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 44px;
+        }
+
+        .fg {
+            margin-bottom: 14px
+        }
+
+        .fl {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--chrome-4);
+            display: block;
+            margin-bottom: 7px
+        }
+
+        .fi,
+        .fsel,
+        .ft {
+            width: 100%;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-family: inherit;
+            font-size: .9rem;
+            color: var(--chrome-2);
+            outline: none;
+            transition: border-color .2s, background .2s;
+        }
+
+        .fi::placeholder,
+        .ft::placeholder {
+            color: var(--chrome-5)
+        }
+
+        .fi:focus,
+        .fsel:focus,
+        .ft:focus {
+            border-color: var(--border-bright);
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .fsel option {
+            background: var(--s2);
+            color: var(--chrome-2)
+        }
+
+        .ft {
+            min-height: 88px;
+            resize: vertical
+        }
+
+        .frow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .fsub {
+            width: 100%;
+            background: var(--chrome-1);
+            color: #000;
+            font-family: inherit;
+            font-size: .95rem;
+            font-weight: 800;
+            padding: 18px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            margin-top: 6px;
+            letter-spacing: .01em;
+            transition: transform .25s var(--ease), box-shadow .25s, background .2s;
+        }
+
+        .fsub:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 42px rgba(255, 255, 255, .18);
+            background: #fff
+        }
+
+        .fpriv {
+            font-size: .7rem;
+            color: var(--chrome-5);
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.5
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .f-logo {
+            font-size: .875rem;
+            font-weight: 700;
+            color: var(--chrome-4)
+        }
+
+        .f-copy {
+            font-size: .78rem;
+            color: var(--chrome-5)
+        }
+
+        /* ── WA ── */
+        .wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 300;
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .3);
+            transition: transform .25s var(--ease), box-shadow .25s;
+            animation: waPop .6s 1.2s var(--ease) both;
+        }
+
+        @keyframes waPop {
+            from {
+                opacity: 0;
+                transform: scale(.3)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .wa:hover {
+            transform: scale(1.12) translateY(-3px);
+            box-shadow: 0 10px 40px rgba(37, 211, 102, .45)
+        }
+
+        .wa svg {
+            width: 26px;
+            height: 26px;
+            fill: #fff
+        }
+
+        .mvt {
+            position: fixed;
+            top: 80px;
+            right: 16px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 5px 12px;
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            color: var(--chrome-4);
+            text-transform: uppercase;
+            z-index: 200
+        }
+
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .hero-right {
+                display: none
+            }
+
+            .hero-left {
+                padding: 120px 24px 80px
+            }
+
+            .hero-h {
+                font-size: 3.5rem
+            }
+
+            nav ul {
+                display: none
+            }
+
+            .ba-section,
+            .gallery,
+            .services,
+            .process,
+            .refs,
+            .contact,
+            .footer {
+                padding-left: 24px;
+                padding-right: 24px
+            }
+
+            .sv-grid,
+            .proc-grid {
+                grid-template-columns: 1fr
+            }
+
+            .refs-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .b1,
+            .b2,
+            .b3,
+            .b4,
+            .b5 {
+                grid-column: span 12
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mvt">v3 — Chrome Black</div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-mark">PB</div>
+            Parlak Beton A.Ş.
+        </a>
+        <ul>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#surec">Süreç</a></li>
+            <li><a href="#referanslar">Referanslar</a></li>
+        </ul>
+        <a href="#iletisim" class="nav-cta">Keşif Talep Et →</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>Türkiye'nin Zemin Uzmanı · 2009'dan Beri</div>
+            <h1 class="hero-h">
+                <span class="light">Zemin</span>
+                <span class="heavy"><span class="chrome">Dönüşümü</span></span>
+            </h1>
+            <div class="hero-bottom">
+                <a href="#iletisim" class="btn-main">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Ücretsiz Keşif
+                </a>
+                <a href="#galeri" class="btn-sec">
+                    Projeleri Gör
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="http://parlakbeton.com/wp-content/uploads/2024/04/parlak-beton-parlatma-032-1920x1080-1.jpg"
+                alt="Parlak Zemin" loading="eager" />
+            <div class="hero-stats">
+                <div class="h-stat">
+                    <span class="h-stat-n chrome-soft">15+</span>
+                    <span class="h-stat-l">Yıl Deneyim</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-n chrome-soft">200+</span>
+                    <span class="h-stat-l">Tamamlanan Proje</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-n chrome-soft">0.42</span>
+                    <span class="h-stat-l">Min. DCOF</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item">Beton Parlatma</span>
+            <span class="ticker-item">Lityum Silikat Kristalizasyonu</span>
+            <span class="ticker-item">Mobil Robot Zemini</span>
+            <span class="ticker-item">DCOF ≥ 0.42 Garantisi</span>
+            <span class="ticker-item">Tozumazlık</span>
+            <span class="ticker-item">Ankara · İstanbul · İzmir</span>
+            <span class="ticker-item">15+ Yıl Deneyim</span>
+            <span class="ticker-item">Ücretsiz Zemin Analizi</span>
+            <span class="ticker-item">Beton Parlatma</span>
+            <span class="ticker-item">Lityum Silikat Kristalizasyonu</span>
+            <span class="ticker-item">Mobil Robot Zemini</span>
+            <span class="ticker-item">DCOF ≥ 0.42 Garantisi</span>
+            <span class="ticker-item">Tozumazlık</span>
+            <span class="ticker-item">Ankara · İstanbul · İzmir</span>
+            <span class="ticker-item">15+ Yıl Deneyim</span>
+            <span class="ticker-item">Ücretsiz Zemin Analizi</span>
+        </div>
+    </div>
+
+    <!-- BEFORE/AFTER -->
+    <section class="ba-section">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Önce &amp; Sonra</p>
+            <h2 class="section-title"><span class="chrome">Farkı</span> <span class="light">Kendiniz Görün</span></h2>
+            <div class="ba-wrap" id="ba">
+                <div class="ba-before">
+                    <img src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1800x1400-009.jpg"
+                        alt="Önce" />
+                </div>
+                <div class="ba-after" id="baAfter">
+                    <img src="http://parlakbeton.com/wp-content/uploads/2024/05/parlak-beton-parlatma-135-1920x1080-1.jpg"
+                        alt="Sonra" />
+                </div>
+                <div class="ba-line" id="baLine"></div>
+                <div class="ba-icon" id="baIcon">⟺</div>
+                <span class="ba-tag left">Önce</span>
+                <span class="ba-tag right">Sonra</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO GALERİ -->
+    <section class="gallery" id="galeri">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Proje Galerisi</p>
+            <h2 class="section-title"><span class="chrome">Tamamlanan</span> <span class="light">Projeler</span></h2>
+            <div class="bento">
+                <div class="bi b1"><img
+                        src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091103.jpg"
+                        alt="Proje 1" loading="lazy" /></div>
+                <div class="bi b2"><img
+                        src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1800x1400-006.jpg"
+                        alt="Proje 2" loading="lazy" /></div>
+                <div class="bi b3"><img
+                        src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091108.jpg"
+                        alt="Proje 3" loading="lazy" /></div>
+                <div class="bi b4"><img
+                        src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091113.jpg"
+                        alt="Proje 4" loading="lazy" /></div>
+                <div class="bi b5"><img
+                        src="http://parlakbeton.com/wp-content/uploads/2024/12/mobil-robotlar-icin-zemin-005.jpg"
+                        alt="Proje 5" loading="lazy" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section class="services" id="hizmetler">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Hizmetler</p>
+            <h2 class="section-title"><span class="chrome">Zemin</span> <span class="light">Teknolojileri</span></h2>
+            <div class="sv-grid">
+                <div class="sv">
+                    <img src="http://parlakbeton.com/wp-content/uploads/2023/01/beton-parlatma-1300x900-004.jpg"
+                        alt="Beton Parlatma" loading="lazy" />
+                    <div class="sv-body">
+                        <div class="sv-num">01</div>
+                        <span class="sv-chip">Temel Hizmet</span>
+                        <h3 class="sv-title">Beton Parlatma</h3>
+                        <p class="sv-desc">Lityum silikat kristalizasyonu ile kalıcı parlaklık, sertlik ve tozumazlık.
+                        </p>
+                        <span class="sv-arrow">Detaylar →</span>
+                    </div>
+                </div>
+                <div class="sv">
+                    <img src="http://parlakbeton.com/wp-content/uploads/2024/12/mobil-robotlar-icin-zemin-005.jpg"
+                        alt="Mobil Robot" loading="lazy" />
+                    <div class="sv-body">
+                        <div class="sv-num">02</div>
+                        <span class="sv-chip">Özel Çözüm</span>
+                        <h3 class="sv-title">Mobil Robot Zemini</h3>
+                        <p class="sv-desc">AGV ve AMR sistemleri için yüksek yansıtma ve düşük parçacık zemini.</p>
+                        <span class="sv-arrow">Detaylar →</span>
+                    </div>
+                </div>
+                <div class="sv">
+                    <img src="http://parlakbeton.com/wp-content/uploads/2025/03/beton-parlatma-makinesi-1.jpg"
+                        alt="Fabrika" loading="lazy" />
+                    <div class="sv-body">
+                        <div class="sv-num">03</div>
+                        <span class="sv-chip">Endüstriyel</span>
+                        <h3 class="sv-title">Fabrika &amp; Depo</h3>
+                        <p class="sv-desc">Ağır yük, forklift trafiği için DCOF ≥ 0.42 standart yüzey.</p>
+                        <span class="sv-arrow">Detaylar →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SÜREÇ -->
+    <section class="process" id="surec">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Uygulama Süreci</p>
+            <h2 class="section-title"><span class="chrome">Adım</span> <span class="light">Adım</span></h2>
+            <div class="proc-grid">
+                <div class="proc-step"><span class="proc-n">01</span>
+                    <p class="proc-l">Zemin Analizi</p>
+                </div>
+                <div class="proc-step"><span class="proc-n">02</span>
+                    <p class="proc-l">Tamirat &amp; Hazırlık</p>
+                </div>
+                <div class="proc-step"><span class="proc-n">03</span>
+                    <p class="proc-l">Kaba Öğütme</p>
+                </div>
+                <div class="proc-step"><span class="proc-n">04</span>
+                    <p class="proc-l">Lityum Silikat</p>
+                </div>
+                <div class="proc-step"><span class="proc-n">05</span>
+                    <p class="proc-l">İnce Parlatma</p>
+                </div>
+                <div class="proc-step"><span class="proc-n">06</span>
+                    <p class="proc-l">Koruyucu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERANSLAR -->
+    <section class="refs" id="referanslar">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Müşteri Görüşleri</p>
+            <h2 class="section-title"><span class="chrome">Başarı</span> <span class="light">Hikayeleri</span></h2>
+            <div class="refs-grid">
+                <div class="ref">
+                    <div class="ref-quote-mark">"</div>
+                    <p class="ref-q">Parlak Beton uygulaması fabrikamızda toz sorununu tamamen çözdü. AGV robotlarımız
+                        artık çok daha verimli çalışıyor.</p>
+                    <div class="ref-sep"></div>
+                    <p class="ref-co">Debak Denizli</p>
+                    <p class="ref-role">Üretim Direktörü</p>
+                </div>
+                <div class="ref">
+                    <div class="ref-quote-mark">"</div>
+                    <p class="ref-q">Zemin parlaklığı sayesinde aydınlatma maliyetimiz %20 düştü. Teknik yaklaşımları
+                        son derece profesyonel.</p>
+                    <div class="ref-sep"></div>
+                    <p class="ref-co">Garanti İplik</p>
+                    <p class="ref-role">Tesis Yöneticisi</p>
+                </div>
+                <div class="ref">
+                    <div class="ref-quote-mark">"</div>
+                    <p class="ref-q">Epoksi yerine Parlak Beton seçtik — 3 yıldır sıfır bakım. Hem maliyet hem estetik
+                        açısından doğru seçim.</p>
+                    <div class="ref-sep"></div>
+                    <p class="ref-co">Tedak Elektrik</p>
+                    <p class="ref-role">Fabrika Müdürü</p>
+                </div>
+                <div class="ref">
+                    <div class="ref-quote-mark">"</div>
+                    <p class="ref-q">Zemin analizi ve sonrası kalite raporu çok detaylıydı. Güvenilir ve şeffaf bir iş
+                        ortağı.</p>
+                    <div class="ref-sep"></div>
+                    <p class="ref-co">Akgün Elektrik</p>
+                    <p class="ref-role">Satın Alma Direktörü</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section class="contact" id="iletisim">
+        <div style="max-width:1280px;margin:0 auto">
+            <p class="section-label">Keşif Talebi</p>
+            <h2 class="section-title"><span class="chrome">Ücretsiz</span> <span class="light">Zemin Analizi</span></h2>
+            <div class="contact-grid">
+                <div>
+                    <p class="contact-p">Projenizi kısaca anlatın. 24 saat içinde uzmanımız sizi arar, ücretsiz keşif
+                        randevusu planlar.</p>
+                    <div class="cd">
+                        <div class="cd-icon">📞</div><span class="cd-txt">+90 507 218 53 18</span>
+                    </div>
+                    <div class="cd">
+                        <div class="cd-icon">✉️</div><span class="cd-txt">bilgi@parlakbeton.com</span>
+                    </div>
+                    <div class="cd">
+                        <div class="cd-icon">📍</div><span class="cd-txt">Ankara · İstanbul · İzmir</span>
+                    </div>
+                </div>
+                <div class="form-card">
+                    <div class="frow">
+                        <div class="fg"><label class="fl">Adınız</label><input class="fi" placeholder="Ad Soyad" />
+                        </div>
+                        <div class="fg"><label class="fl">Firma</label><input class="fi" placeholder="Firma Adı" />
+                        </div>
+                    </div>
+                    <div class="fg"><label class="fl">Telefon</label><input class="fi" type="tel"
+                            placeholder="0532 000 00 00" /></div>
+                    <div class="frow">
+                        <div class="fg"><label class="fl">Alan (m²)</label>
+                            <select class="fsel fi">
+                                <option value="">Seçin</option>
+                                <option>500-1.000 m²</option>
+                                <option>1.000-3.000 m²</option>
+                                <option>3.000-10.000 m²</option>
+                                <option>10.000 m²+</option>
+                            </select>
+                        </div>
+                        <div class="fg"><label class="fl">Şehir</label>
+                            <select class="fsel fi">
+                                <option value="">Seçin</option>
+                                <option>Ankara</option>
+                                <option>İstanbul</option>
+                                <option>İzmir</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fg"><label class="fl">Zemin Durumu</label>
+                        <select class="fsel fi">
+                            <option value="">Seçin</option>
+                            <option>Ham beton</option>
+                            <option>Eski / kullanılmış beton</option>
+                            <option>Mevcut kaplama üstü</option>
+                            <option>Emin değilim</option>
+                        </select>
+                    </div>
+                    <button class="fsub">Keşif Talep Et →</button>
+                    <p class="fpriv">KVKK kapsamında verileriniz yalnızca keşif için kullanılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span class="f-logo">Parlak Beton A.Ş.</span>
+        <span class="f-copy">© 2026 Zemin Teknolojileri · parlakbeton.com</span>
+    </footer>
+
+    <a href="https://wa.me/905072185318" class="wa" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        const ba = document.getElementById('ba'), baAfter = document.getElementById('baAfter'), baLine = document.getElementById('baLine'), baIcon = document.getElementById('baIcon');
+        let drag = false;
+        function pos(x) {
+            const r = ba.getBoundingClientRect(), p = Math.max(3, Math.min(97, ((x - r.left) / r.width) * 100));
+            baAfter.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
+            baLine.style.left = p + '%'; baIcon.style.left = p + '%'; baIcon.style.transform = 'translateX(-50%)';
+        }
+        ba.addEventListener('mousedown', e => { drag = true; pos(e.clientX) });
+        window.addEventListener('mousemove', e => { if (drag) pos(e.clientX) });
+        window.addEventListener('mouseup', () => drag = false);
+        ba.addEventListener('touchstart', e => { drag = true; pos(e.touches[0].clientX) }, { passive: true });
+        window.addEventListener('touchmove', e => { if (drag) pos(e.touches[0].clientX) }, { passive: true });
+        window.addEventListener('touchend', () => drag = false);
+    </script>
+</body>
+
+</html>
