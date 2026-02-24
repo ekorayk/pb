@@ -175,3 +175,39 @@ Yönetim Kurulu protokolü ve tüm persona dosyaları için → `.agent/board/RE
 | `/dev-server` | Astro geliştirme sunucusu |
 | `/build` | Prodüksiyon build |
 | `/deploy` | Deploy işlemi |
+
+---
+
+## Skill Ekosistemi
+
+37 skill aktif. Manifest: `.claude-plugin/marketplace.json`
+
+### YK Advisor Skills (her üye için özel)
+
+| Skill | Tetikleyici | Üye |
+|-------|-------------|-----|
+| `ceo-advisor` | strateji, vizyon, büyüme, CEO | Alexander |
+| `cfo-advisor` | finans, bütçe, maliyet, CFO | Dilek |
+| `cmo-advisor` | pazarlama, marka, kampanya, CMO | Serena |
+| `cso-advisor` | satış, teklif, lead, müşteri, CSO | Mehmet |
+| `cto-advisor` | teknik, zemin, lityum, DCOF, CTO | Dr. Emre |
+| `coo-advisor` | operasyon, proje, saha, COO | Levent |
+| `chro-advisor` | IK, personel, işe alım, CHRO | Ayşe |
+| `cdo-advisor` | dijital, yazılım, API, CDO | Can |
+| `clo-advisor` | hukuk, sözleşme, KVKK, CLO | Neslihan |
+| `customer-success` | müşteri memnuniyeti, CXO | Pınar |
+
+### Pazarlama & Büyüme Skills
+
+`seo-audit` · `content-strategy` · `copywriting` · `page-cro` · `form-cro`
+`programmatic-seo` · `schema-markup` · `social-content` · `email-sequence`
+`cold-email` · `paid-ads` · `analytics-tracking` · `marketing-psychology`
+`launch-strategy` · `referral-program` · `churn-prevention` · `competitor-alternatives`
+
+### Satış & Gelir Skills
+
+`pricing-strategy` · `sales-advisor` · `revenue-operations` · `offer-generator` · `risk-management`
+
+### Geliştirme Skills
+
+`component-builder` · `content-writer` · `image-optimize` · `shared-miniconda-project-env` · `skill-scout`

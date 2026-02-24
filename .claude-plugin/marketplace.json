@@ -1,0 +1,83 @@
+{
+    "name": "parlakbeton-skills",
+    "owner": {
+        "name": "Parlak Beton Zemin Teknolojileri San. ve Tic. A.Ş.",
+        "email": "bilgi@parlakbeton.com"
+    },
+    "metadata": {
+        "description": "AI Yönetim Kurulu ve operasyonel skill ekosistemi — parlakbeton.com",
+        "version": "1.0.0",
+        "created": "2026-02-24"
+    },
+    "plugins": [
+        {
+            "name": "board-advisors",
+            "description": "AI Yönetim Kurulu — 10 C-seviye uzman persona",
+            "source": "./",
+            "strict": false,
+            "skills": [
+                "./.skills/ceo-advisor",
+                "./.skills/cfo-advisor",
+                "./.skills/cmo-advisor",
+                "./.skills/cso-advisor",
+                "./.skills/cto-advisor",
+                "./.skills/coo-advisor",
+                "./.skills/chro-advisor",
+                "./.skills/cdo-advisor",
+                "./.skills/clo-advisor",
+                "./.skills/customer-success"
+            ]
+        },
+        {
+            "name": "marketing-growth",
+            "description": "SEO, içerik, dönüşüm, pazarlama büyüme skill'leri",
+            "source": "./",
+            "strict": false,
+            "skills": [
+                "./.skills/seo-audit",
+                "./.skills/content-strategy",
+                "./.skills/copywriting",
+                "./.skills/page-cro",
+                "./.skills/form-cro",
+                "./.skills/programmatic-seo",
+                "./.skills/schema-markup",
+                "./.skills/social-content",
+                "./.skills/email-sequence",
+                "./.skills/cold-email",
+                "./.skills/paid-ads",
+                "./.skills/analytics-tracking",
+                "./.skills/marketing-psychology",
+                "./.skills/launch-strategy",
+                "./.skills/referral-program",
+                "./.skills/churn-prevention",
+                "./.skills/competitor-alternatives"
+            ]
+        },
+        {
+            "name": "sales-revenue",
+            "description": "Satış, gelir yönetimi, fiyatlandırma skill'leri",
+            "source": "./",
+            "strict": false,
+            "skills": [
+                "./.skills/pricing-strategy",
+                "./.skills/sales-advisor",
+                "./.skills/revenue-operations",
+                "./.skills/offer-generator",
+                "./.skills/risk-management"
+            ]
+        },
+        {
+            "name": "development-workflow",
+            "description": "Web geliştirme, bileşen oluşturma, optimizasyon skill'leri",
+            "source": "./",
+            "strict": false,
+            "skills": [
+                "./.skills/component-builder",
+                "./.skills/content-writer",
+                "./.skills/image-optimize",
+                "./.skills/shared-miniconda-project-env",
+                "./.skills/skill-scout"
+            ]
+        }
+    ]
+}
