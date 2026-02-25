@@ -35,3 +35,9 @@ desktop.ini
 
 # ─── Analytics raporları (lokal, Git'e eklenmesin) ───────
 .agent/analytics/reports/
+
+# ─── HASSAS: Şirket Bilgileri & AI Yönetim ───────────────
+.agent/                # Yönetim Kurulu, stratejiler, CRM
+.claude/               # AI memory & session logs
+.skills/               # Custom skill kodları
+CLAUDE.md             # Proje talimatları (opsiyonel - içerik hassassa)
