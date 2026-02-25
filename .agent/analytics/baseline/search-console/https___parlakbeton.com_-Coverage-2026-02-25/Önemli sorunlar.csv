@@ -1,0 +1,11 @@
+Sebep,Kaynak,Doğrulama,Sayfa sayısı
+Bulunamadı (404),Web sitesi,Başlatılmadı,78
+Yönlendirmeli sayfa,Web sitesi,Başlatılmadı,16
+Doğru standart etikete sahip alternatif sayfa,Web sitesi,Başlatılmadı,16
+"""noindex"" etiketi tarafından hariç tutuldu",Web sitesi,Başlatılmadı,7
+Sunucu hatası (5xx),Web sitesi,Başlatılmadı,3
+Başka bir 4xx sorunu nedeniyle engellendi,Web sitesi,Başlatılmadı,1
+Robots.txt tarafından engellendi,Web sitesi,Başlatılmadı,1
+Tarandı - şu anda dizine eklenmiş değil,Google sistemleri,Başlatılmadı,31
+Keşfedildi - şu anda dizine eklenmiş değil,Google sistemleri,Başarılı,11
+"Kopya, Google kullanıcıdan farklı bir standart sayfa seçti",Google sistemleri,Yok,0

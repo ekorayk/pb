@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout>
+  <Navigation />
+  <main>
+    <Hero />
+
+    <!-- Additional sections will be added here -->
+    <section class="placeholder-section">
+      <div class="container">
+        <h2>Hizmetler, Referanslar ve diğer bölümler yakında eklenecek...</h2>
+        <p>Safari-first yaklaşımla geliştirme devam ediyor.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    position: relative;
+  }
+
+  .placeholder-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--white);
+  }
+
+  .placeholder-section h2 {
+    color: var(--grey-d);
+    margin-bottom: 1rem;
+  }
+
+  .placeholder-section p {
+    color: var(--grey);
+  }
+</style>

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(where npm:*)",
+      "Bash(node --version:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(npm --version:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}

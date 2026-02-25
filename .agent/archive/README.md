@@ -1,6 +1,6 @@
 # Mevcut Site Arşivi — parlakbeton.com
 
-# Arşiv Tarihi: 2026-02-24
+# Arşiv Tarihi: 2026-02-25 (Güncelleme: 2026-02-25)
 
 # Kaynak: WordPress (Yoast SEO Sitemap)
 
@@ -35,13 +35,21 @@ tüm URL'lerini, içeriklerini ve yönlendirme haritasını arşivlemek.
 **Tamamlanan:**
 
 - [x] URL envanteri çıkarıldı (sitemap crawl)
-- [x] Yönlendirme haritası oluşturuldu
+- [x] Yönlendirme haritası oluşturuldu (Caddy + Nginx)
 - [x] Pre-migration checklist hazırlandı
+- [x] Tüm statik sayfa içerikleri arşivlendi (content/ klasörü)
+- [x] 17 blog yazısının içerikleri arşivlendi (content/blog/ klasörü)
+- [x] Referans firma bilgileri ve müşteri yorumları kaydedildi
+- [x] Gizlilik politikası metni arşivlendi (CLO onaylı)
+- [x] Broşür URL'si tespit edildi (indirme bekliyor)
 
-**Bekleyen (manuel):**
+**Bekleyen (manuel — acil):**
 
-- [ ] Tüm medya dosyaları indirildi
+- [ ] WordPress veritabanı yedeği alındı (CyberPanel backup)
+- [ ] Medya dosyaları indirildi (wp-content/uploads/)
+- [ ] Broşür PDF'leri indirildi
 - [ ] Search Console verisi export edildi
 - [ ] Google Analytics verisi export edildi
-- [ ] WordPress veritabanı yedeği alındı (CyberPanel backup)
-- [ ] Site ekran görüntüleri arşivlendi (Wayback Machine)
+- [ ] Wayback Machine arşivi oluşturuldu
+- [ ] Ekran görüntüleri alındı (desktop + mobile)
+- [ ] 6 blog yazısının tam içeriği WordPress'ten export edildi (makinesi, nasıl-calisir, yeniden-dogusu, elektrik-enerji, kullanim-alanlari, uretim-kalitesi)

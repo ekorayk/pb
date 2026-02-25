@@ -67,13 +67,25 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 10px 10px 20px;
-            background: rgba(255, 255, 255, .1);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, .22);
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(48px) saturate(200%) brightness(1.05);
+            -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.05);
+            border: 1px solid rgba(255, 255, 255, .18);
             border-radius: 100px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, .12), inset 0 1px 0 rgba(255, 255, 255, .3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, .12),
+                0 2px 8px rgba(0, 0, 0, .06),
+                inset 0 1px 0 rgba(255, 255, 255, .35),
+                inset 0 -1px 0 rgba(255, 255, 255, .06);
             animation: navIn .7s var(--ease) both;
+            transition: background .4s var(--ease), border-color .4s, box-shadow .4s;
+        }
+
+        nav .logo-nav img,
+        nav .nav-links a,
+        nav .nav-cta,
+        nav .hamburger span {
+            transition: all .4s var(--ease);
         }
 
         @keyframes navIn {
@@ -88,13 +100,34 @@
             }
         }
 
+        /* Specular highlight — top edge */
         nav::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .12) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, .06) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, .18) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, .08) 100%);
             pointer-events: none
+        }
+
+        /* Prismatic edge — rainbow fringe */
+        nav::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg,
+                    rgba(255, 120, 80, .08) 0%,
+                    rgba(255, 200, 60, .06) 15%,
+                    rgba(100, 220, 140, .06) 30%,
+                    rgba(80, 160, 255, .08) 50%,
+                    rgba(160, 100, 255, .06) 70%,
+                    rgba(255, 120, 180, .06) 85%,
+                    rgba(255, 120, 80, .04) 100%);
+            pointer-events: none;
+            opacity: .6;
+            mix-blend-mode: screen;
+            z-index: -1;
         }
 
         .logo-nav {
@@ -155,6 +188,61 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, .15)
         }
 
+        /* ── NAV SCROLLED STATE (açık arka planlar) ── */
+        nav.nav-scrolled {
+            background: rgba(255, 255, 255, .72);
+            backdrop-filter: blur(48px) saturate(200%) brightness(1.08);
+            -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.08);
+            border-color: rgba(0, 0, 0, .06);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, .08),
+                0 1px 4px rgba(0, 0, 0, .04),
+                inset 0 1px 0 rgba(255, 255, 255, .85),
+                inset 0 -1px 0 rgba(0, 0, 0, .02);
+        }
+
+        nav.nav-scrolled::before {
+            background: linear-gradient(135deg, rgba(255, 255, 255, .4) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, .15) 100%)
+        }
+
+        nav.nav-scrolled::after {
+            background: linear-gradient(135deg,
+                    rgba(255, 100, 60, .04) 0%,
+                    rgba(255, 200, 40, .03) 15%,
+                    rgba(80, 200, 140, .03) 30%,
+                    rgba(60, 140, 255, .05) 50%,
+                    rgba(140, 80, 240, .03) 70%,
+                    rgba(255, 100, 160, .03) 85%,
+                    rgba(255, 100, 60, .02) 100%);
+            opacity: .5;
+            mix-blend-mode: multiply
+        }
+
+        nav.nav-scrolled .logo-nav img {
+            filter: brightness(0) invert(0)
+        }
+
+        nav.nav-scrolled .nav-links a {
+            color: rgba(0, 0, 0, .65)
+        }
+
+        nav.nav-scrolled .nav-links a:hover {
+            color: rgba(0, 0, 0, .95)
+        }
+
+        nav.nav-scrolled .nav-cta {
+            background: rgba(18, 18, 16, .9);
+            color: #fff;
+        }
+
+        nav.nav-scrolled .nav-cta:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .2)
+        }
+
+        nav.nav-scrolled .hamburger span {
+            background: rgba(0, 0, 0, .75)
+        }
+
         /* ── HERO ── */
         .hero {
             position: relative;
@@ -203,10 +291,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, .08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .06);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, .15);
             border-radius: 100px;
             padding: 7px 16px 7px 10px;
             font-size: .68rem;
@@ -214,17 +302,51 @@
             letter-spacing: .1em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, .75);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .1), inset 0 1px 0 rgba(255, 255, 255, .2);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, .12),
+                0 1px 4px rgba(0, 0, 0, .06),
+                inset 0 1px 0 rgba(255, 255, 255, .25),
+                inset 0 -0.5px 0 rgba(255, 255, 255, .05);
             animation: fadeUp .7s .3s var(--ease) both;
         }
 
+        /* Specular top edge */
         .glass-badge::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, .15), transparent 45%);
             pointer-events: none
+        }
+
+        /* Chromatic edge shimmer */
+        .glass-badge::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(90deg,
+                    rgba(255, 100, 80, .12) 0%,
+                    rgba(80, 180, 255, .10) 50%,
+                    rgba(180, 80, 255, .08) 100%);
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: screen;
+            transition: opacity .4s;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 0
+            }
+
+            50% {
+                opacity: .5
+            }
         }
 
         .gb-dot {
@@ -386,23 +508,62 @@
         .gp-card {
             padding: 18px 22px;
             min-width: 130px;
-            background: rgba(255, 255, 255, .07);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1px solid rgba(255, 255, 255, .18);
-            border-radius: 16px;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(255, 255, 255, .25);
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(36px) saturate(180%) brightness(1.02);
+            -webkit-backdrop-filter: blur(36px) saturate(180%) brightness(1.02);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 18px;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, .18),
+                0 4px 12px rgba(0, 0, 0, .08),
+                inset 0 1px 0 rgba(255, 255, 255, .30),
+                inset 0 -1px 0 rgba(255, 255, 255, .05);
             position: relative;
             overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s;
         }
 
+        .gp-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 16px 52px rgba(0, 0, 0, .22),
+                0 6px 16px rgba(0, 0, 0, .10),
+                inset 0 1px 0 rgba(255, 255, 255, .35),
+                inset 0 -1px 0 rgba(255, 255, 255, .06);
+        }
+
+        /* Specular highlight */
         .gp-card::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(160deg, rgba(255, 255, 255, .2) 0%, transparent 40%);
+            background: linear-gradient(160deg, rgba(255, 255, 255, .22) 0%, transparent 35%);
             pointer-events: none
+        }
+
+        /* Prismatic dispersion edge */
+        .gp-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: conic-gradient(from 120deg,
+                    rgba(255, 80, 60, .10),
+                    rgba(255, 200, 40, .08),
+                    rgba(60, 220, 120, .08),
+                    rgba(60, 150, 255, .10),
+                    rgba(180, 80, 255, .08),
+                    rgba(255, 80, 160, .08),
+                    rgba(255, 80, 60, .10));
+            pointer-events: none;
+            opacity: .4;
+            mix-blend-mode: screen;
+            transition: opacity .4s;
+        }
+
+        .gp-card:hover::after {
+            opacity: .7
         }
 
         .gp-n {
@@ -410,7 +571,9 @@
             font-weight: 900;
             letter-spacing: -.04em;
             color: var(--white);
-            display: block
+            display: block;
+            position: relative;
+            z-index: 1;
         }
 
         .gp-l {
@@ -418,7 +581,9 @@
             font-weight: 400;
             color: rgba(255, 255, 255, .45);
             letter-spacing: .04em;
-            margin-top: 2px
+            margin-top: 2px;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeUp {
@@ -457,32 +622,69 @@
 
         /* REV#7: Lityum silikat açıklama — glass card */
         .glass-aside {
-            background: rgba(0, 0, 0, .03);
-            border: 1px solid var(--border);
-            border-radius: 18px;
+            background: rgba(255, 255, 255, .45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 20px;
             padding: 36px;
             margin-top: 48px;
             max-width: 480px;
             margin-left: auto;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, .06),
+                0 4px 12px rgba(0, 0, 0, .03),
+                inset 0 1px 0 rgba(255, 255, 255, .7),
+                inset 0 -1px 0 rgba(255, 255, 255, .2);
+            transition: transform .4s var(--ease), box-shadow .4s;
         }
 
+        .glass-aside:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, .08),
+                0 6px 16px rgba(0, 0, 0, .04),
+                inset 0 1px 0 rgba(255, 255, 255, .8),
+                inset 0 -1px 0 rgba(255, 255, 255, .3);
+        }
+
+        /* Specular highlight */
         .glass-aside::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(160deg, rgba(255, 255, 255, .5) 0%, transparent 35%);
+            background: linear-gradient(150deg, rgba(255, 255, 255, .6) 0%, transparent 30%);
             pointer-events: none
+        }
+
+        /* Prismatic edge fringe */
+        .glass-aside::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: conic-gradient(from 200deg,
+                    rgba(255, 100, 60, .06),
+                    rgba(255, 220, 60, .05),
+                    rgba(80, 200, 120, .05),
+                    rgba(60, 140, 255, .07),
+                    rgba(160, 80, 240, .05),
+                    rgba(255, 100, 60, .06));
+            pointer-events: none;
+            opacity: .35;
+            mix-blend-mode: multiply;
         }
 
         .glass-aside p {
             font-size: .85rem;
             line-height: 1.7;
             color: var(--grey-d);
-            font-weight: 300
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
 
         .glass-aside .tech-note {
@@ -491,7 +693,9 @@
             color: var(--grey);
             font-style: italic;
             border-top: 1px solid var(--border);
-            padding-top: 12px
+            padding-top: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         /* ── NUMBERS ── */
@@ -1301,9 +1505,143 @@
    ══════════════════════════════════════════════════ */
 
         /* Tablet dikey (768px) */
+        /* ── HAMBURGER MENU ── */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            position: relative;
+            z-index: 502;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: rgba(255, 255, 255, .85);
+            margin: 0 auto;
+            transition: transform .3s var(--ease), opacity .2s;
+            border-radius: 2px;
+        }
+
+        .hamburger span:nth-child(1) {
+            margin-bottom: 5px
+        }
+
+        .hamburger span:nth-child(3) {
+            margin-top: 5px
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px)
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px)
+        }
+
+        /* ── MOBILE MENU OVERLAY ── */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 499;
+            background: rgba(12, 12, 10, .92);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .4s var(--ease);
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: rgba(255, 255, 255, .7);
+            text-decoration: none;
+            letter-spacing: -.02em;
+            padding: 12px 0;
+            transition: color .2s, transform .3s var(--ease);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .mobile-menu.open a {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu.open a:nth-child(1) {
+            transition-delay: .08s
+        }
+
+        .mobile-menu.open a:nth-child(2) {
+            transition-delay: .14s
+        }
+
+        .mobile-menu.open a:nth-child(3) {
+            transition-delay: .20s
+        }
+
+        .mobile-menu.open a:nth-child(4) {
+            transition-delay: .26s
+        }
+
+        .mobile-menu.open a:nth-child(5) {
+            transition-delay: .32s
+        }
+
+        .mobile-menu a:hover {
+            color: #fff;
+        }
+
+        .mobile-menu .mm-cta {
+            margin-top: 28px;
+            font-size: .85rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            background: var(--white);
+            color: var(--black);
+            padding: 16px 32px;
+            border-radius: 100px;
+        }
+
+        .mobile-menu .mm-tel {
+            margin-top: 16px;
+            font-size: .82rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .4);
+        }
+
         @media(max-width:900px) {
             :root {
                 --pad: 28px
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
 
             nav {
@@ -1377,6 +1715,10 @@
 
             .num-item {
                 padding: 24px 16px
+            }
+
+            .num-item:nth-child(2) {
+                border-right: none
             }
 
             .sv-item-inner {
@@ -1619,20 +1961,31 @@
 
 <body>
 
-    <!-- SVG Liquid Glass -->
+    <!-- SVG Liquid Glass Filters -->
     <svg width="0" height="0" style="position:absolute">
         <defs>
+            <!-- Primary liquid glass: refraction + specular + chromatic hint -->
             <filter id="liquid-glass" x="-20%" y="-20%" width="140%" height="140%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="2" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"
+                <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"
                     result="refracted" />
-                <feGaussianBlur in="refracted" stdDeviation="0.4" result="blurred" />
-                <feSpecularLighting in="noise" surfaceScale="2" specularConstant=".7" specularExponent="20"
+                <feGaussianBlur in="refracted" stdDeviation="0.3" result="blurred" />
+                <feSpecularLighting in="noise" surfaceScale="2.5" specularConstant=".8" specularExponent="25"
                     result="spec">
-                    <fePointLight x="200" y="100" z="300" />
+                    <fePointLight x="250" y="80" z="400" />
                 </feSpecularLighting>
                 <feComposite in="spec" in2="SourceAlpha" operator="in" result="specMask" />
                 <feBlend in="blurred" in2="specMask" mode="screen" />
+            </filter>
+
+            <!-- Chromatic aberration: subtle RGB offset -->
+            <filter id="chromatic" x="-5%" y="-5%" width="110%" height="110%">
+                <feOffset in="SourceGraphic" dx="1" dy="0" result="red" />
+                <feOffset in="SourceGraphic" dx="-1" dy="0" result="blue" />
+                <feColorMatrix in="red" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r" />
+                <feColorMatrix in="blue" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b" />
+                <feBlend in="r" in2="SourceGraphic" mode="screen" result="rg" />
+                <feBlend in="b" in2="rg" mode="screen" />
             </filter>
         </defs>
     </svg>
@@ -1654,10 +2007,23 @@
             </svg>
             Keşif Talep Et
         </a>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hizmetler" class="mm-link">Hizmetler</a>
+        <a href="#galeri" class="mm-link">Galeri</a>
+        <a href="#referanslar" class="mm-link">Referanslar</a>
+        <a href="#iletisim" class="mm-link">İletişim</a>
+        <a href="#iletisim" class="mm-cta">Keşif Talep Et →</a>
+        <a href="tel:+905072185318" class="mm-tel">📞 0507 218 53 18</a>
+    </div>
+
     <!-- HERO -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" data-nav="dark">
         <div class="hero-bg"></div>
 
         <div class="glass-badge">
@@ -1700,7 +2066,7 @@
     </section>
 
     <!-- STATEMENT -->
-    <section class="statement">
+    <section class="statement" data-nav="light">
         <p class="stmt-text reveal">
             Türkiye'nin en <em>tozlu</em> fabrikalarını,<br>
             en <em>parlak</em> zemine dönüştürüyoruz.
@@ -1714,7 +2080,7 @@
     </section>
 
     <!-- NUMBERS -->
-    <div class="numbers">
+    <div class="numbers" data-nav="dark">
         <div class="num-item reveal"><span class="num-n">15+</span><span class="num-l">Yıl Deneyim</span></div>
         <div class="num-item reveal rd1"><span class="num-n">200+</span><span class="num-l">Tamamlanan Proje</span>
         </div>
@@ -1723,7 +2089,7 @@
     </div>
 
     <!-- HİZMETLER -->
-    <section class="services" id="hizmetler">
+    <section class="services" id="hizmetler" data-nav="light">
         <div class="sv-header reveal">
             <h2 class="sv-h">Hizmetler</h2><span class="sv-count">3 Hizmet</span>
         </div>
@@ -1752,7 +2118,7 @@
     </section>
 
     <!-- FULL PHOTO -->
-    <div class="full-photo">
+    <div class="full-photo" data-nav="dark">
         <img src="http://parlakbeton.com/wp-content/uploads/2025/09/parlak-beton-parlatma-25091103.jpg" alt="Proje"
             loading="lazy" />
         <div class="full-photo-cap"><span class="fpc-l">Proje Galerisi</span><span class="fpc-r">Endüstriyel Beton
@@ -1760,7 +2126,7 @@
     </div>
 
     <!-- BEFORE/AFTER -->
-    <section class="ba" id="onceson">
+    <section class="ba" id="onceson" data-nav="light">
         <p class="sec-label reveal">Önce &amp; Sonra</p>
         <h2 class="sec-h reveal">Farkı <span class="thin">kendiniz görün</span></h2>
         <div class="ba-wrap" id="ba">
@@ -1777,7 +2143,7 @@
     </section>
 
     <!-- GALERİ STRIP -->
-    <section class="gallery-strip" id="galeri">
+    <section class="gallery-strip" id="galeri" data-nav="dark">
         <p class="gs-label">Tamamlanan Projeler</p>
         <div class="strip-track" id="strip">
             <div class="strip-item"><img
@@ -1799,7 +2165,7 @@
     </section>
 
     <!-- REV#6: SÜREÇ -->
-    <section class="process" id="surec">
+    <section class="process" id="surec" data-nav="light">
         <div style="max-width:1280px;margin:0 auto">
             <p class="sec-label reveal">Uygulama Süreci</p>
             <h2 class="sec-h reveal">Adım <span class="thin">Adım</span></h2>
@@ -1833,7 +2199,7 @@
     </section>
 
     <!-- REFERANSLAR -->
-    <section class="refs" id="referanslar">
+    <section class="refs" id="referanslar" data-nav="light">
         <p class="sec-label reveal">Müşteri Görüşleri</p>
         <h2 class="sec-h reveal">Başarı <span class="thin">Hikayeleri</span></h2>
         <div class="refs-grid">
@@ -1867,7 +2233,7 @@
     </section>
 
     <!-- LOGO STRIP -->
-    <div class="logo-strip">
+    <div class="logo-strip" data-nav="light">
         <p class="ls-label">Güvenen Firmalar</p>
         <div class="ls-logos">
             <span class="ls-logo">Debak</span><span class="ls-logo">Garanti İplik</span>
@@ -1877,7 +2243,7 @@
     </div>
 
     <!-- REV#5: İLETİŞİM FORMU -->
-    <section class="contact" id="iletisim">
+    <section class="contact" id="iletisim" data-nav="dark">
         <div class="cta-bg">PARLAK</div>
         <p class="sec-label reveal" style="color:rgba(255,255,255,.3)">Keşif Talebi</p>
         <h2 class="sec-h contact-h reveal"><span class="thin">Ücretsiz</span> Zemin Analizi</h2>
@@ -1950,6 +2316,49 @@
     </a>
 
     <script>
+        /* Hamburger menu toggle */
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+        /* Close on link click */
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        /* Nav scroll theme switch — section-based detection */
+        const navEl = document.querySelector('nav');
+        const allSections = document.querySelectorAll('[data-nav]');
+        let currentNavTheme = 'dark'; // hero starts dark bg → white text
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const theme = entry.target.getAttribute('data-nav');
+                    if (theme && theme !== currentNavTheme) {
+                        currentNavTheme = theme;
+                        if (theme === 'light') {
+                            navEl.classList.add('nav-scrolled');
+                        } else {
+                            navEl.classList.remove('nav-scrolled');
+                        }
+                    }
+                }
+            });
+        }, {
+            rootMargin: '-1px 0px -95% 0px', // only top ~5% of viewport triggers
+            threshold: 0
+        });
+
+        allSections.forEach(sec => navObserver.observe(sec));
+
         /* Scroll reveal */
         const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } }) }, { threshold: .1 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));

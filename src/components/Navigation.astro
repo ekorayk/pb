@@ -1,0 +1,376 @@
+---
+// Navigation — Liquid Glass Effect (Safari-compatible)
+const navLinks = [
+  { text: 'Ana Sayfa', href: '/' },
+  { text: 'Hizmetler', href: '/hizmetler' },
+  { text: 'Projeler', href: '/projeler' },
+  { text: 'Hakkımızda', href: '/hakkimizda' },
+  { text: 'İletişim', href: '/iletisim' }
+];
+---
+
+<nav class="main-nav">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="Parlak Beton Ana Sayfa">
+      <span class="logo-text">Parlak Beton</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA Button -->
+    <a href="tel:+905072185318" class="nav-cta">
+      <span class="cta-icon">📞</span>
+      <span class="cta-text">0507 218 5318</span>
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" aria-label="Menü" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" aria-hidden="true">
+    <ul>
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))}
+      <li class="mobile-cta">
+        <a href="tel:+905072185318">
+          <span>📞</span> 0507 218 5318
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* ====================================
+     NAVIGATION — LIQUID GLASS DESIGN
+     Safari-First Implementation
+     ==================================== */
+
+  .main-nav {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    width: min(96vw, 1320px);
+    z-index: 500;
+    animation: navSlideDown 0.7s var(--ease) both;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 20px;
+    gap: 2rem;
+
+    /* Fallback — solid background */
+    background: rgba(250, 250, 248, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.06);
+
+    transition:
+      background 0.4s var(--ease),
+      border-color 0.4s,
+      box-shadow 0.4s;
+  }
+
+  /* Enhanced glass — modern browsers */
+  @supports (backdrop-filter: blur(20px)) {
+    .nav-container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  /* Safari-specific optimization */
+  @supports (-webkit-backdrop-filter: blur(20px)) {
+    .nav-container {
+      -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.05);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+  }
+
+  /* Logo */
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  .logo:hover {
+    opacity: 0.7;
+  }
+
+  .logo-text {
+    display: block;
+  }
+
+  /* Desktop Nav Links */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: var(--grey-d);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: color 0.3s var(--ease);
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s var(--ease);
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* CTA Button */
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition:
+      background 0.3s var(--ease),
+      transform 0.2s var(--ease);
+    transform: translateZ(0);
+  }
+
+  .nav-cta:hover {
+    background: #236663;
+    transform: translateY(-2px) translateZ(0);
+  }
+
+  .cta-icon {
+    font-size: 1.125rem;
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: all 0.3s var(--ease);
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+  }
+
+  .hamburger::before {
+    top: 12px;
+  }
+
+  .hamburger::after {
+    bottom: 12px;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    width: min(96vw, 1320px);
+    padding: 1.5rem;
+    border-radius: 24px;
+
+    /* Fallback */
+    background: rgba(250, 250, 248, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  @supports (backdrop-filter: blur(20px)) {
+    .mobile-menu {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(32px) saturate(180%);
+      -webkit-backdrop-filter: blur(32px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  }
+
+  .mobile-menu[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--grey-d);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: background 0.2s var(--ease);
+  }
+
+  .mobile-menu a:hover {
+    background: rgba(43, 122, 120, 0.1);
+    color: var(--accent);
+  }
+
+  .mobile-cta a {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+  }
+
+  .mobile-cta a:hover {
+    background: #236663;
+  }
+
+  /* Animations */
+  @keyframes navSlideDown {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-20px) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) translateZ(0);
+    }
+  }
+
+  /* ====================================
+     RESPONSIVE — MOBILE FIRST
+     ==================================== */
+
+  @media (max-width: 768px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: block;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+
+    .main-nav {
+      top: 8px;
+    }
+
+    .nav-container {
+      padding: 8px 12px 8px 16px;
+    }
+
+    .logo {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-text {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.mobile-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.setAttribute('aria-hidden', String(isExpanded));
+    });
+
+    // Close menu on link click
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+  }
+</script>

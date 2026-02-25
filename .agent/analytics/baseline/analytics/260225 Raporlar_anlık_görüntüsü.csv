@@ -1,0 +1,918 @@
+# ----------------------------------------
+# Raporlar anlık görüntüsü
+# Hesap: parlakbeton.com
+# Mülk: parlakbeton.com
+# ----------------------------------------
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+N. hafta,Etkin kullanıcı sayısı
+0000,4
+0001,9
+0002,18
+0003,14
+0004,7
+0005,7
+0006,9
+0007,33
+0008,7
+0009,3
+0010,65
+0011,9
+0012,84
+0013,11
+0014,13
+0015,13
+0016,13
+0017,9
+0018,10
+0019,21
+0020,7
+0021,20
+0022,7
+0023,63
+0024,12
+0025,9
+0026,13
+0027,38
+0028,7
+0029,17
+0030,5
+0031,10
+0032,11
+0033,7
+0034,18
+0035,34
+0036,9
+0037,47
+0038,19
+0039,56
+0040,30
+0041,30
+0042,26
+0043,12
+0044,20
+0045,11
+0046,12
+0047,18
+0048,14
+0049,19
+0050,20
+0051,41
+0052,24
+0053,14
+0054,16
+0055,23
+0056,14
+0057,10
+0058,7
+0059,9
+0060,6
+
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+N. hafta,Yeni kullanıcı sayısı
+0000,4
+0001,8
+0002,17
+0003,12
+0004,7
+0005,5
+0006,9
+0007,33
+0008,6
+0009,2
+0010,65
+0011,8
+0012,82
+0013,10
+0014,12
+0015,12
+0016,13
+0017,8
+0018,9
+0019,20
+0020,7
+0021,19
+0022,6
+0023,63
+0024,12
+0025,9
+0026,12
+0027,37
+0028,6
+0029,16
+0030,4
+0031,9
+0032,9
+0033,6
+0034,17
+0035,33
+0036,8
+0037,45
+0038,18
+0039,55
+0040,29
+0041,30
+0042,26
+0043,12
+0044,20
+0045,10
+0046,12
+0047,17
+0048,14
+0049,18
+0050,18
+0051,41
+0052,21
+0053,11
+0054,16
+0055,21
+0056,13
+0057,10
+0058,7
+0059,9
+0060,5
+
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+N. hafta,Etkin kullanıcı başına ortalama etkileşim süresi
+0000,42.75
+0001,29
+0002,1.2222222222222223
+0003,27.142857142857142
+0004,11.142857142857142
+0005,47.142857142857146
+0006,36.77777777777778
+0007,37.21212121212121
+0008,127.14285714285714
+0009,2.6666666666666665
+0010,3.9692307692307693
+0011,15.88888888888889
+0012,10.119047619047619
+0013,23.727272727272727
+0014,15.153846153846153
+0015,23.153846153846153
+0016,28.76923076923077
+0017,15.11111111111111
+0018,10.1
+0019,25.857142857142858
+0020,7.142857142857143
+0021,27.2
+0022,16.428571428571427
+0023,10.365079365079366
+0024,22.333333333333332
+0025,46.666666666666664
+0026,37.07692307692308
+0027,19.05263157894737
+0028,14.857142857142858
+0029,21.88235294117647
+0030,51.8
+0031,42
+0032,60.81818181818182
+0033,111.28571428571429
+0034,9.61111111111111
+0035,26.38235294117647
+0036,79.44444444444444
+0037,52.255319148936174
+0038,21.526315789473685
+0039,18.928571428571427
+0040,71.66666666666667
+0041,23.166666666666668
+0042,31.884615384615383
+0043,5.083333333333333
+0044,16.4
+0045,42.54545454545455
+0046,3.4166666666666665
+0047,17.833333333333332
+0048,13.5
+0049,30.94736842105263
+0050,29.25
+0051,3562.0731707317073
+0052,19769.666666666668
+0053,756.8571428571429
+0054,46.1875
+0055,29.52173913043478
+0056,11.571428571428571
+0057,102.4
+0058,43.714285714285715
+0059,34.111111111111114
+0060,2.5
+
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+N. hafta,Toplam gelir
+0000,0
+0001,0
+0002,0
+0003,0
+0004,0
+0005,0
+0006,0
+0007,0
+0008,0
+0009,0
+0010,0
+0011,0
+0012,0
+0013,0
+0014,0
+0015,0
+0016,0
+0017,0
+0018,0
+0019,0
+0020,0
+0021,0
+0022,0
+0023,0
+0024,0
+0025,0
+0026,0
+0027,0
+0028,0
+0029,0
+0030,0
+0031,0
+0032,0
+0033,0
+0034,0
+0035,0
+0036,0
+0037,0
+0038,0
+0039,0
+0040,0
+0041,0
+0042,0
+0043,0
+0044,0
+0045,0
+0046,0
+0047,0
+0048,0
+0049,0
+0050,0
+0051,0
+0052,0
+0053,0
+0054,0
+0055,0
+0056,0
+0057,0
+0058,0
+0059,0
+0060,0
+
+# Yeni kullanıcılarınız nereden geliyor?
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+İlk kullanıcı birincil kanal grubu (Varsayılan Kanal Grubu),Yeni kullanıcı sayısı
+Direct,713
+Organic Search,313
+Organic Social,48
+Referral,15
+Unassigned,4
+
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Oturumla ilişkilendirilen birincil kanal grubu (Varsayılan Kanal Grubu),Oturumlar
+Direct,912
+Organic Search,440
+Organic Social,48
+Referral,18
+Unassigned,8
+
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Ülke Kimliği,Etkin kullanıcı sayısı
+AT,10
+AU,3
+AZ,1
+BE,2
+BG,1
+CN,47
+DE,104
+DK,1
+EG,1
+FI,4
+FR,4
+GB,7
+GE,1
+GH,1
+HU,1
+ID,1
+IE,77
+IN,9
+IQ,2
+IT,3
+JP,1
+KR,4
+LI,1
+LT,1
+NG,1
+NL,68
+PL,3
+RO,1
+RS,1
+RU,10
+SE,8
+SG,5
+TR,404
+US,264
+
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Ülke,Etkin kullanıcı sayısı
+TR,404
+US,264
+DE,104
+IE,77
+NL,68
+CN,47
+AT,10
+
+# Etkin kullanıcılar nasıl bir eğilim gösteriyor?
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+N. gün,30 gün,7 gün,1 gün
+0000,78,46,0
+0001,81,38,3
+0002,77,34,1
+0003,77,34,0
+0004,77,21,1
+0005,79,15,2
+0006,81,10,3
+0007,80,10,0
+0008,80,9,3
+0009,81,9,1
+0010,81,9,0
+0011,82,10,2
+0012,85,12,4
+0013,82,10,0
+0014,80,10,0
+0015,90,18,11
+0016,89,18,1
+0017,89,18,0
+0018,89,17,1
+0019,89,16,3
+0020,87,17,2
+0021,90,21,5
+0022,89,14,3
+0023,87,14,1
+0024,77,14,0
+0025,72,14,0
+0026,72,11,0
+0027,59,10,1
+0028,53,6,1
+0029,50,8,5
+0030,50,7,1
+0031,47,7,0
+0032,47,9,3
+0033,48,10,1
+0034,47,10,0
+0035,46,10,1
+0036,45,6,1
+0037,45,6,0
+0038,44,7,1
+0039,43,4,0
+0040,43,3,0
+0041,41,3,0
+0042,43,8,6
+0043,43,7,0
+0044,45,9,2
+0045,36,9,1
+0046,36,10,1
+0047,38,12,2
+0048,62,36,24
+0049,60,31,1
+0050,62,35,4
+0051,58,34,1
+0052,56,33,0
+0053,55,32,0
+0054,55,30,0
+0055,55,6,0
+0056,57,8,3
+0057,59,6,2
+0058,58,5,0
+0059,55,7,2
+0060,55,7,0
+0061,55,7,0
+0062,53,7,0
+0063,52,4,0
+0064,52,3,1
+0065,52,4,1
+0066,52,3,1
+0067,52,3,0
+0068,109,61,58
+0069,109,61,0
+0070,110,62,1
+0071,113,64,3
+0072,109,65,2
+0073,110,65,1
+0074,109,66,1
+0075,108,8,0
+0076,107,9,1
+0077,105,8,0
+0078,81,5,1
+0079,80,3,0
+0080,83,9,8
+0081,87,13,6
+0082,89,15,3
+0083,151,77,62
+0084,153,79,4
+0085,153,79,0
+0086,160,88,10
+0087,161,84,3
+0088,163,81,2
+0089,161,79,0
+0090,162,20,1
+0091,163,17,1
+0092,165,19,2
+0093,169,13,4
+0094,169,11,1
+0095,168,9,0
+0096,167,9,0
+0097,169,10,2
+0098,117,15,6
+0099,121,17,4
+0100,121,14,1
+0101,118,13,0
+0102,117,14,1
+0103,121,19,5
+0104,120,17,0
+0105,121,13,2
+0106,123,11,3
+0107,125,12,2
+0108,126,13,1
+0109,126,12,0
+0110,119,7,0
+0111,114,7,0
+0112,118,12,6
+0113,60,11,2
+0114,58,11,2
+0115,61,13,3
+0116,52,13,0
+0117,50,14,1
+0118,50,16,2
+0119,50,10,0
+0120,53,12,4
+0121,52,10,0
+0122,52,9,2
+0123,49,10,1
+0124,51,12,3
+0125,51,10,0
+0126,52,11,1
+0127,53,9,2
+0128,48,10,1
+0129,46,10,2
+0130,49,13,4
+0131,52,13,3
+0132,52,14,1
+0133,53,19,7
+0134,53,17,0
+0135,55,19,3
+0136,55,21,3
+0137,54,18,1
+0138,53,15,0
+0139,55,16,2
+0140,55,9,0
+0141,55,9,0
+0142,52,9,3
+0143,51,7,1
+0144,49,6,0
+0145,50,10,4
+0146,55,13,5
+0147,55,14,1
+0148,58,19,5
+0149,60,18,2
+0150,59,20,3
+0151,60,21,2
+0152,60,19,3
+0153,59,14,0
+0154,57,14,1
+0155,59,11,2
+0156,58,10,0
+0157,56,7,0
+0158,55,6,0
+0159,55,4,1
+0160,105,58,54
+0161,105,60,3
+0162,107,61,3
+0163,102,63,2
+0164,102,63,1
+0165,100,64,1
+0166,97,63,0
+0167,99,12,3
+0168,101,12,2
+0169,101,11,2
+0170,102,10,1
+0171,105,12,3
+0172,105,14,3
+0173,106,16,2
+0174,108,15,3
+0175,105,14,1
+0176,100,12,0
+0177,100,12,1
+0178,95,9,0
+0179,95,8,2
+0180,93,8,1
+0181,93,6,1
+0182,90,5,0
+0183,93,8,3
+0184,92,7,0
+0185,96,13,6
+0186,99,15,4
+0187,120,35,21
+0188,124,38,6
+0189,126,41,3
+0190,74,40,2
+0191,76,44,4
+0192,73,38,0
+0193,71,35,0
+0194,72,16,1
+0195,72,11,1
+0196,74,10,2
+0197,73,11,3
+0198,71,7,0
+0199,69,7,0
+0200,68,7,0
+0201,67,8,2
+0202,69,12,5
+0203,74,16,6
+0204,72,15,2
+0205,73,17,2
+0206,73,17,0
+0207,74,19,2
+0208,74,17,0
+0209,73,12,0
+0210,74,8,3
+0211,73,6,0
+0212,74,5,1
+0213,71,5,0
+0214,72,5,1
+0215,71,10,5
+0216,68,10,0
+0217,49,8,1
+0218,44,10,2
+0219,41,9,0
+0220,41,10,1
+0221,37,9,1
+0222,43,10,6
+0223,43,10,0
+0224,42,9,0
+0225,44,10,3
+0226,42,11,1
+0227,40,11,0
+0228,42,12,2
+0229,44,8,3
+0230,45,9,2
+0231,43,9,0
+0232,38,6,1
+0233,33,7,2
+0234,31,7,0
+0235,29,5,0
+0236,30,5,1
+0237,30,4,1
+0238,33,7,3
+0239,33,7,0
+0240,41,15,10
+0241,44,18,3
+0242,44,19,1
+0243,46,20,2
+0244,47,21,2
+0245,43,19,1
+0246,44,21,2
+0247,68,36,25
+0248,68,34,1
+0249,69,34,1
+0250,70,33,2
+0251,70,32,2
+0252,65,32,1
+0253,65,31,0
+0254,68,9,3
+0255,66,9,1
+0256,67,10,3
+0257,88,30,22
+0258,92,35,8
+0259,98,41,7
+0260,98,42,1
+0261,105,46,8
+0262,107,47,2
+0263,107,47,1
+0264,108,27,1
+0265,112,24,4
+0266,112,18,1
+0267,112,18,1
+0268,113,14,4
+0269,119,19,7
+0270,113,22,4
+0271,120,31,11
+0272,121,29,2
+0273,128,37,9
+0274,127,37,1
+0275,147,54,21
+0276,154,56,9
+0277,136,59,7
+0278,142,56,7
+0279,143,56,2
+0280,143,48,1
+0281,146,51,5
+0282,148,33,3
+0283,153,30,5
+0284,153,26,3
+0285,154,21,2
+0286,154,20,1
+0287,139,25,6
+0288,135,23,4
+0289,141,33,13
+0290,142,30,2
+0291,136,28,1
+0292,140,32,6
+0293,145,38,6
+0294,149,37,5
+0295,148,36,3
+0296,150,26,3
+0297,151,26,2
+0298,148,26,1
+0299,144,22,2
+0300,143,19,3
+0301,135,16,2
+0302,134,14,1
+0303,126,12,1
+0304,127,12,2
+0305,109,14,3
+0306,104,15,3
+0307,100,15,3
+0308,96,16,3
+0309,97,18,3
+0310,98,19,2
+0311,96,20,3
+0312,93,17,0
+0313,91,17,3
+0314,89,15,1
+0315,88,13,1
+0316,91,13,3
+0317,87,13,2
+0318,84,11,1
+0319,74,14,3
+0320,74,13,2
+0321,75,14,2
+0322,71,15,2
+0323,66,13,1
+0324,62,12,1
+0325,60,12,1
+0326,59,12,3
+0327,58,11,1
+0328,58,10,1
+0329,64,16,8
+0330,63,17,2
+0331,62,17,2
+0332,63,18,2
+0333,64,18,2
+0334,64,19,2
+0335,62,19,1
+0336,62,14,3
+0337,61,14,2
+0338,59,13,1
+0339,59,14,3
+0340,58,13,1
+0341,55,11,0
+0342,59,15,5
+0343,59,15,3
+0344,65,20,8
+0345,66,21,3
+0346,65,19,1
+0347,69,24,6
+0348,72,29,5
+0349,71,27,2
+0350,70,26,1
+0351,69,19,1
+0352,71,20,4
+0353,71,20,1
+0354,71,16,2
+0355,70,11,0
+0356,72,13,5
+0357,73,14,4
+0358,99,40,28
+0359,94,39,4
+0360,95,41,3
+0361,94,40,2
+0362,92,40,1
+0363,95,42,7
+0364,94,42,2
+0365,103,25,10
+0366,104,26,4
+0367,103,24,3
+0368,105,25,3
+0369,105,28,3
+0370,104,22,1
+0371,107,24,4
+0372,103,16,1
+0373,102,13,1
+0374,96,14,3
+0375,96,13,2
+0376,96,11,1
+0377,91,12,1
+0378,87,8,0
+0379,89,12,5
+0380,90,13,3
+0381,95,16,6
+0382,95,19,5
+0383,95,19,1
+0384,97,21,4
+0385,100,24,4
+0386,104,27,7
+0387,104,26,1
+0388,80,23,4
+0389,80,22,3
+0390,78,22,1
+0391,78,20,1
+0392,79,18,1
+0393,73,11,1
+0394,77,15,5
+0395,70,14,2
+0396,69,14,3
+0397,70,15,2
+0398,69,16,2
+0399,67,16,1
+0400,68,16,1
+0401,65,12,1
+0402,65,10,0
+0403,65,8,1
+0404,65,9,3
+0405,64,7,0
+0406,63,6,0
+0407,64,7,2
+0408,65,7,1
+0409,61,7,0
+0410,60,7,1
+0411,54,4,0
+0412,50,4,0
+0413,51,6,2
+0414,52,8,4
+0415,51,9,2
+0416,44,9,0
+0417,43,8,0
+0418,45,13,5
+0419,42,14,1
+
+# Kullanıcılarınızı elde tutma başarınız ne düzeyde?
+# Başlangıç tarihi: 20260111
+# Bitiş tarihi: 20260221
+Tarih,0. Hafta,1. Hafta,2. Hafta,3. Hafta,4. Hafta,5. Hafta
+11 Oca - 17 Oca,16,1,1,1
+18 Oca - 24 Oca,21,0,0,0
+25 Oca - 31 Oca,13,0,0,0
+1 Şub - 7 Şub,10,0,0,-1
+8 Şub - 14 Şub,7,0,-1,-1
+15 Şub - 21 Şub,9,-1,-1,-1
+
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Sayfa başlığı ve ekran sınıfı,Görüntüleme Sayısı
+Beton Parlatma | Ana Sayfa | Parlak Beton A.Ş.,768
+Beton Parlatma Uzmanı | Zemin Uygulamaları - Parlak Beton A.Ş.,185
+Beton Parlatma Hizmetleri | İletişim Bilgileri | Parlak Beton A.Ş. |,153
+Sayfa bulunamadı | Parlak Beton A.Ş.,112
+Mobil Robotlar İçin Özelleştirilmiş Zemin | Parlak Beton A.Ş.,110
+Parlak Beton Çözümleri | Parlak Beton A.Ş.,103
+Epoksi Zemin Temizliği ve Bakım Çözümleri | Parlak Beton A.Ş.,69
+Referanslarımız | Parlak Beton A.Ş.,68
+Beton Parlatma | Hakkımızda | Parlak Beton A.Ş.,64
+Beton Parlatma | Parlak Beton A.Ş.,57
+İstanbul'da Fabrika Zemini Uygulaması | Parlak Beton A.Ş.,37
+Endüstriyel Taşıyıcılar ve Parlak Beton Zemin Çözümleri | Parlak Beton A.Ş.,32
+Beton Parlatma Makinesi Nasıl Çalışır? | Parlak Beton A.Ş.,31
+Ankara'da Beton Parlatma Hizmetleri | Parlak Beton A.Ş.,23
+Talaşlı İmalat Yapan Fabrikalar İçin Beton Parlatma | Parlak Beton,23
+Beton Parlatma Makinesi Nedir? | Parlak Beton A.Ş.,22
+Beton Parlatma Uygulaması: Fiyatlandırma ve Maliyetleri Etkileyen Faktörler,22
+Beton Parlatma Fiyatı Nedir? | Parlak Beton A.Ş.,20
+Mobil Robot Kullanan Fabrikalar | Parlak Beton A.Ş.,19
+Beton Parlatma Sıvı Yalıtımı Sağlar mı? | Parlak Beton A.Ş.,18
+Zeminlerin Üretim Kalitesine Etkisi | Parlak Beton A.Ş.,16
+Beton Parlatma Haberleri | Beton Parlatma Haberleri ve Blog | Parlak Beton A.Ş.,15
+Beton Parlatma fotoğraf Galerisi | Beton Parlatma Fotoğraf Gelerisi | Parlak Beton A.Ş.,14
+Beton Parlatma Hizmetleri | İletişim | Parlak Beton A.Ş. |,11
+Fabrikalarda Kaymaz Zeminlerin Önemi | Parlak Beton A.Ş.,11
+Beton Parlatma m² Fiyatları ve Maliyet Rehberi | Parlak Beton A.Ş.,10
+Gizlilik Politikası | Parlak Beton A.Ş.,10
+Beton Nedir? Modern İnşaatın Temeli | Parlak Beton A.Ş.,9
+Beton Parlatma Haberleri | Haberler | Blog | Parlak Beton A.Ş.,6
+Güç Transformatörü Üretim Tesisleri | Parlak Beton A.Ş.,6
+İletişim | Parlak Beton A.Ş.,6
+Akıllı Fabrika Arşivleri | Parlak Beton A.Ş.,5
+Hakkımızda | Parlak Beton A.Ş.,5
+Kaymaz Zemin Uygulamaları ve Çözümleri | Parlak Beton A.Ş.,5
+endüstriyel zemin kaplama arşivleri | Parlak Beton A.Ş.,5
+Beton Parlatma Haberleri | Beton Parlatma Rehberi ve Sektörel Blog | Parlak Beton A.Ş.,4
+Beton Parlatma Lityum Silikat | Parlak Beton A.Ş.,4
+Beton Parlatma Uygulamasının Çeşitli Kullanım Alanları | Parlak Beton A.Ş.,4
+Beton Parlatma: Endüstriyel Zeminlerin Yeniden Doğuşu | Parlak Beton A.Ş.,4
+Fabrikalar İçin Ekonomik Avantajlar | Parlak Beton A.Ş.,4
+Beton Parlatma Beton Silim | Parlak Beton A.Ş.,3
+Beton Parlatma Makinesi Nedir? Çeşitleri ve Kullanımı | Parlak Beton A.Ş.,3
+Fotoğraf Galerimiz | Parlak Beton A.Ş.,3
+Güç Transformatörü Üretim Tesisleri İçin Dayanıklı Zemin Çözümleri | Parlak Beton A.Ş.,3
+Mobil Robotların Performansını Artıran Zemin Çözümleri | Parlak Beton A.Ş.,3
+Ankara Arşivleri | Parlak Beton A.Ş.,2
+Ankara Sanayi Arşivleri | Parlak Beton A.Ş.,2
+Dayanıklı Zemin Arşivleri | Parlak Beton A.Ş.,2
+Elektrik ve Enerji Sektörü İçin Özel Zemin Çözümleri | Parlak Beton A.Ş.,2
+Endüstriyel Zemin Arşivleri | Parlak Beton A.Ş.,2
+Lityum Silikat arşivleri | Parlak Beton A.Ş.,2
+"Mart 18, 2025 | Parlak Beton A.Ş.",2
+beton parlatma arşivleri | Parlak Beton A.Ş.,2
+organizesanayibölgesi arşivleri | Parlak Beton A.Ş.,2
+18/03/2025 | Parlak Beton A.Ş.,1
+23/03/2025 | Parlak Beton A.Ş.,1
+Ankara’da Beton Parlatma Hizmetleri: Sanayi Tesisleri İçin Kusursuz Çözümler | Parlak Beton A.Ş.,1
+Beton Parlatma Akıllı Fabrika | Parlak Beton A.Ş.,1
+Beton Parlatma Arşivleri | Parlak Beton A.Ş.,1
+Beton Parlatma Fiyatı | Parlak Beton A.Ş.,1
+Beton Parlatma Haberleri | Beton Parlatma Haberleri ve Blog | Sayfa 2 / 2 | Parlak Beton A.Ş.,1
+Beton Parlatma Haberleri | Beton Parlatma Rehberi ve Sektörel Blog | Sayfa 2 / 2 | Parlak Beton A.Ş.,1
+Beton Parlatma Hizmeti Arşivleri | Parlak Beton A.Ş.,1
+Beton Parlatma Hizmeti | Parlak Beton A.Ş.,1
+Beton Parlatma Teknolojisi arşivleri | Parlak Beton A.Ş.,1
+Beton Parlatma fotoğraf Galerisi | Uygulama Galerisi | Parlak Beton A.Ş.,1
+Beton Parlatma İstanbul – Endüstriyel Zemin Uygulamaları,1
+Beton Zemin Arşivleri | Parlak Beton A.Ş.,1
+Betonparlatma arşivleri | Parlak Beton A.Ş.,1
+Concrete Polishing | Home | Polished Concrete Inc.,1
+Customized Floor for Mobile Robots | Parlak Beton A.Ş.,1
+Dayanıklı Zemin Kaplama Arşivleri | Parlak Beton A.Ş.,1
+Ekonomik Zemin Çözümleri Arşivleri | Parlak Beton A.Ş.,1
+Endüstri4.0 Arşivleri | Parlak Beton A.Ş.,1
+Endüstri40 Arşivleri | Parlak Beton A.Ş.,1
+"Parlak Beton A.Ş., Parlak Beton A.Ş. sitesinin yazarı | Sayfa 2 / 4",1
+What is a Concrete Polishing Machine? | Parlak Beton A.Ş.,1
+endüstriyelzemin arşivleri | Parlak Beton A.Ş.,1
+enerji arşivleri | Parlak Beton A.Ş.,1
+enerji tasarrufu arşivleri | Parlak Beton A.Ş.,1
+epoksi alternatifi arşivleri | Parlak Beton A.Ş.,1
+epoksialternatifi arşivleri | Parlak Beton A.Ş.,1
+fabrika altyapısı arşivleri | Parlak Beton A.Ş.,1
+fabrika zemini arşivleri | Parlak Beton A.Ş.,1
+fabrikaverimliliği arşivleri | Parlak Beton A.Ş.,1
+güç trafosu arşivleri | Parlak Beton A.Ş.,1
+güç transformatörleri arşivleri | Parlak Beton A.Ş.,1
+kesintisiz üretim arşivleri | Parlak Beton A.Ş.,1
+mobilrobot arşivleri | Parlak Beton A.Ş.,1
+modern zemin çözümleri arşivleri | Parlak Beton A.Ş.,1
+modernzemin arşivleri | Parlak Beton A.Ş.,1
+otonomsistemler arşivleri | Parlak Beton A.Ş.,1
+parlak beton avantajları arşivleri | Parlak Beton A.Ş.,1
+parlakbeton arşivleri | Parlak Beton A.Ş.,1
+sanayitesisleri arşivleri | Parlak Beton A.Ş.,1
+sanayizemini arşivleri | Parlak Beton A.Ş.,1
+sürdürülebilir zemin kaplama arşivleri | Parlak Beton A.Ş.,1
+transformatör üretimi arşivleri | Parlak Beton A.Ş.,1
+uzunömürlüzemin arşivleri | Parlak Beton A.Ş.,1
+zemin bakım maliyetleri arşivleri | Parlak Beton A.Ş.,1
+zemin dayanıklılığı arşivleri | Parlak Beton A.Ş.,1
+zemin çözümleri arşivleri | Parlak Beton A.Ş.,1
+zeminuygulamaları arşivleri | Parlak Beton A.Ş.,1
+zeminçözümleri arşivleri | Parlak Beton A.Ş.,1
+Çevre Dostu Endüstriyel Zemin Arşivleri | Parlak Beton A.Ş.,1
+üretim verimliliği arşivleri | Parlak Beton A.Ş.,1
+
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Etkinlik adı,Etkinlik sayısı
+page_view,2175
+session_start,1424
+user_engagement,1250
+first_visit,1093
+scroll,411
+click to chat,85
+file_download,30
+click,11
+
+# En iyi performans gösteren önemli etkinlikleriniz neler?
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Etkinlik adı,Önemli faaliyetler
+
+
+# 120 günlük ortalama değeriniz nereden geliyor?
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+İlk kullanıcı birincil kanal grubu (Varsayılan Kanal Grubu),120 günlük ortalama değer
+
+
+#  
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Ürün adı,Satın alınan ürünler
+
+
+# Platformlarınızdaki etkinliklerin karşılaştırması nasıl?
+# Başlangıç tarihi: 20250101
+# Bitiş tarihi: 20260224
+Platform,Önemli faaliyetler
